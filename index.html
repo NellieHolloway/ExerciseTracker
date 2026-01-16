@@ -28,7 +28,7 @@
     .text-teal-700{color:#0f766e}.text-teal-800{color:#115e59}
     .text-amber-700{color:#b45309}.text-amber-800{color:#92400e}
     .bg-white{background:#fff}.bg-gray-50{background:#f9fafb}.bg-gray-100{background:#f3f4f6}.bg-gray-200{background:#e5e7eb}.bg-gray-400{background:#9ca3af}
-    .bg-red-600{background:#dc2626}.bg-green-600{background:#16a34a}.bg-blue-600{background:#2563eb}.bg-indigo-600{background:#4f46e5}
+    .bg-red-600{background:#dc2626}.bg-green-600{background:#16a34a}.bg-blue-600{background:#2563eb}.bg-indigo-600{background:#4f46e5}.bg-purple-600{background:#9333ea}
     .bg-blue-50{background:#eff6ff}.bg-amber-50{background:#fffbeb}.bg-green-50{background:#f0fdf4}
     .grad-green{background:linear-gradient(135deg,#f0fdf4,#dcfce7)}.grad-blue{background:linear-gradient(135deg,#eff6ff,#dbeafe)}
     .grad-orange{background:linear-gradient(135deg,#fff7ed,#ffedd5)}.grad-purple{background:linear-gradient(135deg,#faf5ff,#f3e8ff)}
@@ -92,6 +92,7 @@ const icons = {
   chevronUp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>`,
   zap: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
   settings: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
+  shuffle: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>`,
 };
 
 function icon(name, size) {
@@ -309,6 +310,30 @@ function quickLog() {
   }
 }
 
+function selectRandomExercise() {
+  if (state.exercises.length === 0) return;
+  
+  // Get exercises already logged today
+  const today = todayStr();
+  const loggedTodayIds = new Set(state.records.filter(r => r.date === today).map(r => r.exerciseId));
+  
+  // Filter to exercises not yet logged today
+  const available = state.exercises.filter(ex => !loggedTodayIds.has(ex.id));
+  
+  // If all exercises done today, pick from all exercises
+  const pool = available.length > 0 ? available : state.exercises;
+  
+  const randomIndex = Math.floor(Math.random() * pool.length);
+  const randomExercise = pool[randomIndex];
+  state.quickLogExerciseId = randomExercise.id;
+  state.quickLogAmount = '';
+  render();
+  setTimeout(() => {
+    const el = document.getElementById('quickAmountInput');
+    if (el) el.focus();
+  }, 0);
+}
+
 function updateExercise(id, updates) {
   state.exercises = state.exercises.map(ex => ex.id === id ? { ...ex, ...updates } : ex);
   saveExercises();
@@ -458,9 +483,14 @@ function render() {
   if (state.exercises.length > 0) {
     html += `
       <div class="card">
-        <h2 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-          <span class="text-orange-600">${icon('zap')}</span> Quick Log
-        </h2>
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+            <span class="text-orange-600">${icon('zap')}</span> Quick Log
+          </h2>
+          <button onclick="selectRandomExercise()" class="flex items-center gap-2 bg-purple-600 text-white p-2 px-3 rounded-lg font-medium text-sm" title="Pick random exercise">
+            ${icon('shuffle')} Random
+          </button>
+        </div>
         <div class="flex gap-2 flex-wrap mb-3">
           ${state.exercises.slice(0, 6).map(ex => `
             <button onclick="state.quickLogExerciseId=state.quickLogExerciseId==='${ex.id}'?null:'${ex.id}';state.quickLogAmount='';render();setTimeout(()=>{const el=document.getElementById('quickAmountInput');if(el)el.focus();},0)" class="quick-log-btn ${state.quickLogExerciseId === ex.id ? 'selected' : ''}">
@@ -472,7 +502,7 @@ function render() {
           <div class="flex gap-2 items-center bg-gray-50 p-3 rounded-lg">
             <span class="text-sm font-medium text-gray-600">${state.exercises.find(e => e.id === state.quickLogExerciseId)?.name}:</span>
             <input id="quickAmountInput" type="number" value="${state.quickLogAmount}" oninput="state.quickLogAmount=this.value" onkeypress="if(event.key==='Enter')quickLog()" placeholder="Amount" class="flex-1" style="max-width:120px">
-            <button onclick="quickLog()" ${!state.quickLogAmount ? 'disabled' : ''} class="bg-indigo-600 text-white p-2 px-4 rounded-lg font-medium">Log</button>
+            <button onclick="quickLog()" class="bg-indigo-600 text-white p-2 px-4 rounded-lg font-medium">Log</button>
             <button onclick="state.quickLogExerciseId=null;state.quickLogAmount='';render()" class="text-gray-500 p-2">${icon('x')}</button>
           </div>
         ` : ''}
@@ -538,7 +568,7 @@ function render() {
           <input type="number" value="${state.amount}" oninput="state.amount=this.value" placeholder="Amount">
           <input type="date" value="${state.recordDate}" oninput="state.recordDate=this.value">
         </div>
-        <button onclick="addRecord()" ${!state.selectedExerciseId || !state.amount ? 'disabled' : ''} class="mt-4 w-full bg-indigo-600 text-white p-3 rounded-lg font-semibold">Log Exercise</button>
+        <button onclick="addRecord()" class="mt-4 w-full bg-indigo-600 text-white p-3 rounded-lg font-semibold">Log Exercise</button>
       </div>
     `;
   }
