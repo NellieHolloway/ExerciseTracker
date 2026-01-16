@@ -57,6 +57,14 @@
     .quick-log-btn{padding:0.5rem 1rem;border-radius:0.5rem;font-weight:500;background:#f3f4f6;color:#4b5563;border:2px solid transparent}
     .quick-log-btn:hover{background:#e5e7eb}
     .quick-log-btn.selected{background:#eef2ff;border-color:#6366f1;color:#4f46e5}
+    .day-btn{padding:0.5rem 0.75rem;border-radius:0.5rem;font-weight:500;background:#f3f4f6;color:#4b5563;border:2px solid transparent;font-size:0.875rem}
+    .day-btn:hover{background:#e5e7eb}
+    .day-btn.active{background:#4f46e5;border-color:#4f46e5;color:#fff}
+    .day-btn.today{border-color:#10b981}
+    .exercise-chip{padding:0.375rem 0.75rem;border-radius:0.5rem;font-size:0.875rem;background:#f3f4f6;color:#4b5563;border:2px solid transparent;cursor:pointer}
+    .exercise-chip:hover{background:#e5e7eb}
+    .exercise-chip.selected{background:#eef2ff;border-color:#6366f1;color:#4f46e5}
+    .exercise-chip.done{background:#d1fae5;color:#065f46;border-color:#6ee7b7}
     @media(max-width:768px){
       .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
       .hide-mobile{display:none}
@@ -120,10 +128,22 @@ let state = {
   expandedExercise: null,
   quickLogExerciseId: null,
   quickLogAmount: '',
+  selectedDay: null,
   // Modals
   editExercise: null,
   editRecord: null,
   deleteConfirmId: null,
+};
+
+// Workout schedule by day
+const workoutSchedule = {
+  Monday: ['Muay Thai', 'Impossible Pushup'],
+  Tuesday: ['Patrick Bateman Sit Ups', 'Pushups', 'Pullups', 'Levitation Squats', 'Squats', 'Six Inches', 'Calf Raises', 'Plank', 'Glute Bridge', 'Hindu Pushups'],
+  Wednesday: ['Jumping Jacks', 'Kick Outs', 'Sit ups 60 sec.', 'Side Plank', 'Superman', 'Reverse Snow Angels', 'Side to Side Lunges', 'Mountain Climbers', 'Alpine Climbers', 'Walking Pushups', 'Tuck Jumps', 'Vsit'],
+  Thursday: ['Patrick Bateman Sit Ups', 'Pushups', 'Pullups', 'Levitation Squats', 'Squats', 'Six Inches', 'Calf Raises', 'Plank', 'Glute Bridge', 'Hindu Pushups'],
+  Friday: ['Grip Strength Left', 'Grip Strength Right', 'Eyes Closed One Leg Stand', 'Weighted Punch', 'Pushups Full', 'Wall Sit', 'Dips', 'Defensive Stance', 'Arm Hold', 'Butterflys'],
+  Saturday: ['1 mile', 'Walk 30 min. (vest)', 'Dumbbell Curls', 'Forearm Curls', 'Tricep Extention', 'Shoulder Shrugs'],
+  Sunday: ['Murph']
 };
 
 // Load from localStorage
@@ -146,7 +166,22 @@ function saveRecords() {
 
 // Helpers
 function todayStr() {
-  return new Date().toISOString().split('T')[0];
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+}
+
+function getTodayDayName() {
+  return new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York', weekday: 'long' });
+}
+
+function findExerciseByName(name) {
+  return state.exercises.find(ex => ex.name.toLowerCase() === name.toLowerCase());
+}
+
+function isExerciseLoggedToday(exerciseName) {
+  const ex = findExerciseByName(exerciseName);
+  if (!ex) return false;
+  const today = todayStr();
+  return state.records.some(r => r.exerciseId === ex.id && r.date === today);
 }
 
 function getStats(exerciseId) {
@@ -334,6 +369,30 @@ function selectRandomExercise() {
   }, 0);
 }
 
+function selectDayExercise(exerciseName) {
+  let ex = findExerciseByName(exerciseName);
+  
+  // If exercise doesn't exist, create it
+  if (!ex) {
+    ex = {
+      id: Date.now().toString(),
+      name: exerciseName,
+      createdAt: new Date().toISOString(),
+      goal: null
+    };
+    state.exercises.push(ex);
+    saveExercises();
+  }
+  
+  state.quickLogExerciseId = ex.id;
+  state.quickLogAmount = '';
+  render();
+  setTimeout(() => {
+    const el = document.getElementById('quickAmountInput');
+    if (el) el.focus();
+  }, 0);
+}
+
 function updateExercise(id, updates) {
   state.exercises = state.exercises.map(ex => ex.id === id ? { ...ex, ...updates } : ex);
   saveExercises();
@@ -509,6 +568,69 @@ function render() {
       </div>
     `;
   }
+
+  // Workout Schedule
+  const todayDay = getTodayDayName();
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const selectedDay = state.selectedDay || todayDay;
+  const dayExercises = workoutSchedule[selectedDay] || [];
+  
+  html += `
+    <div class="card">
+      <h2 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        <span class="text-indigo-600">${icon('calendar', 20)}</span> Workout Schedule
+      </h2>
+      <div class="flex gap-2 flex-wrap mb-3">
+        ${days.map(day => `
+          <button onclick="state.selectedDay='${day}';render()" class="day-btn ${selectedDay === day ? 'active' : ''} ${day === todayDay ? 'today' : ''}">
+            ${day.slice(0, 3)}
+          </button>
+        `).join('')}
+      </div>
+      <div class="flex flex-col gap-2">
+        ${dayExercises.map(name => {
+          const done = isExerciseLoggedToday(name);
+          const ex = findExerciseByName(name);
+          const isSelected = ex && state.quickLogExerciseId === ex.id;
+          
+          // Get stats for this exercise
+          let max = 0;
+          let last7Avg = 0;
+          if (ex) {
+            const recs = state.records.filter(r => r.exerciseId === ex.id).sort((a, b) => new Date(b.date) - new Date(a.date));
+            if (recs.length > 0) {
+              max = Math.max(...recs.map(r => r.amount));
+              const last7 = recs.slice(0, 7);
+              last7Avg = last7.reduce((sum, r) => sum + r.amount, 0) / last7.length;
+            }
+          }
+          
+          return `
+            <div class="flex items-center gap-2">
+              <button onclick="selectDayExercise('${name.replace(/'/g, "\\'")}')" class="exercise-chip flex-1 text-left ${isSelected ? 'selected' : ''} ${done ? 'done' : ''}">
+                ${done ? '✓ ' : ''}${name}
+              </button>
+              ${ex && max > 0 ? `
+                <span class="text-xs text-green-700 font-medium shrink-0" style="min-width:70px">Max: ${max.toFixed(1)}</span>
+                <span class="text-xs text-blue-700 font-medium shrink-0" style="min-width:70px">L7: ${last7Avg.toFixed(1)}</span>
+              ` : `
+                <span class="text-xs text-gray-400 shrink-0" style="min-width:146px">No data</span>
+              `}
+            </div>
+          `;
+        }).join('')}
+        ${dayExercises.length === 0 ? '<p class="text-gray-500 text-sm">Rest day!</p>' : ''}
+      </div>
+      ${state.quickLogExerciseId && dayExercises.some(name => { const ex = findExerciseByName(name); return ex && ex.id === state.quickLogExerciseId; }) ? `
+        <div class="flex gap-2 items-center bg-gray-50 p-3 rounded-lg mt-3">
+          <span class="text-sm font-medium text-gray-600">${state.exercises.find(e => e.id === state.quickLogExerciseId)?.name}:</span>
+          <input id="quickAmountInput" type="number" value="${state.quickLogAmount}" oninput="state.quickLogAmount=this.value" onkeypress="if(event.key==='Enter')quickLog()" placeholder="Amount" class="flex-1" style="max-width:120px">
+          <button onclick="quickLog()" class="bg-indigo-600 text-white p-2 px-4 rounded-lg font-medium">Log</button>
+          <button onclick="state.quickLogExerciseId=null;state.quickLogAmount='';render()" class="text-gray-500 p-2">${icon('x')}</button>
+        </div>
+      ` : ''}
+    </div>
+  `;
 
   // Daily Stats
   if (state.showDailyStats) {
