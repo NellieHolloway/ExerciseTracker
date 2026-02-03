@@ -7,73 +7,77 @@
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#eff6ff,#e0e7ff);min-height:100vh}
-    .container{max-width:56rem;margin:0 auto;padding:1rem}
+    .container{max-width:72rem;margin:0 auto;padding:1rem}
     .card{background:#fff;border-radius:1rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);padding:1.5rem;margin-bottom:1.5rem}
-    .flex{display:flex}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-between{justify-content:space-between}.flex-wrap{flex-wrap:wrap}
+    .flex{display:flex}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.flex-wrap{flex-wrap:wrap}
     .gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}
     .grid{display:grid}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}
-    .mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.ml-2{margin-left:0.5rem}.mr-2{margin-right:0.5rem}
-    .p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}
-    .w-full{width:100%}.flex-1{flex:1}.shrink-0{flex-shrink:0}
+    .mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}
+    .p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}
+    .w-full{width:100%}.flex-1{flex:1}
     .text-xs{font-size:0.75rem}.text-sm{font-size:0.875rem}.text-lg{font-size:1.125rem}.text-xl{font-size:1.25rem}.text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}
     .font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}
     .text-white{color:#fff}.text-gray-400{color:#9ca3af}.text-gray-500{color:#6b7280}.text-gray-600{color:#4b5563}.text-gray-800{color:#1f2937}
-    .text-red-600{color:#dc2626}.text-indigo-600{color:#4f46e5}.text-indigo-100{color:#e0e7ff}
     .text-green-600{color:#16a34a}.text-green-700{color:#15803d}.text-green-800{color:#166534}
-    .text-blue-700{color:#1d4ed8}.text-blue-800{color:#1e40af}.text-blue-900{color:#1e3a8a}
-    .text-orange-600{color:#ea580c}.text-orange-700{color:#c2410c}.text-orange-800{color:#9a3412}
+    .text-blue-600{color:#2563eb}.text-blue-700{color:#1d4ed8}.text-blue-800{color:#1e40af}
     .text-purple-700{color:#7e22ce}.text-purple-800{color:#6b21a8}
-    .text-indigo-700{color:#4338ca}.text-indigo-800{color:#3730a3}
-    .text-pink-700{color:#be185d}.text-pink-800{color:#9d174d}
-    .text-teal-700{color:#0f766e}.text-teal-800{color:#115e59}
-    .text-amber-700{color:#b45309}.text-amber-800{color:#92400e}
-    .bg-white{background:#fff}.bg-gray-50{background:#f9fafb}.bg-gray-100{background:#f3f4f6}.bg-gray-200{background:#e5e7eb}.bg-gray-400{background:#9ca3af}
-    .bg-red-600{background:#dc2626}.bg-green-600{background:#16a34a}.bg-blue-600{background:#2563eb}.bg-indigo-600{background:#4f46e5}.bg-purple-600{background:#9333ea}
-    .bg-blue-50{background:#eff6ff}.bg-amber-50{background:#fffbeb}.bg-green-50{background:#f0fdf4}
+    .text-indigo-600{color:#4f46e5}.text-orange-600{color:#ea580c}.text-red-600{color:#dc2626}.text-red-500{color:#ef4444}.text-red-700{color:#b91c1c}
+    .bg-white{background:#fff}.bg-gray-50{background:#f9fafb}.bg-gray-100{background:#f3f4f6}.bg-gray-200{background:#e5e7eb}.bg-red-50{background:#fef2f2}.bg-red-100{background:#fee2e2}
+    .bg-green-600{background:#16a34a}.bg-blue-600{background:#2563eb}.bg-indigo-600{background:#4f46e5}.bg-red-600{background:#dc2626}.bg-purple-600{background:#9333ea}
     .grad-green{background:linear-gradient(135deg,#f0fdf4,#dcfce7)}.grad-blue{background:linear-gradient(135deg,#eff6ff,#dbeafe)}
-    .grad-orange{background:linear-gradient(135deg,#fff7ed,#ffedd5)}.grad-purple{background:linear-gradient(135deg,#faf5ff,#f3e8ff)}
-    .grad-indigo{background:linear-gradient(135deg,#eef2ff,#e0e7ff)}.grad-pink{background:linear-gradient(135deg,#fdf2f8,#fce7f3)}
-    .grad-teal{background:linear-gradient(135deg,#f0fdfa,#ccfbf1)}.grad-gray{background:linear-gradient(90deg,#f9fafb,#f3f4f6)}
-    .grad-amber{background:linear-gradient(135deg,#fffbeb,#fef3c7)}
+    .grad-purple{background:linear-gradient(135deg,#faf5ff,#f3e8ff)}.grad-orange{background:linear-gradient(135deg,#fff7ed,#ffedd5)}
+    .grad-indigo{background:linear-gradient(135deg,#eef2ff,#e0e7ff)}.grad-teal{background:linear-gradient(135deg,#f0fdfa,#ccfbf1)}
     .grad-header{background:linear-gradient(90deg,#6366f1,#9333ea)}
-    .rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-full{border-radius:9999px}
-    .border{border:1px solid}.border-2{border:2px solid}.border-gray-200{border-color:#e5e7eb}.border-gray-300{border-color:#d1d5db}.border-blue-200{border-color:#bfdbfe}.border-green-300{border-color:#86efac}.border-amber-300{border-color:#fcd34d}
+    .rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}
+    .border{border:1px solid}.border-2{border:2px solid}.border-gray-200{border-color:#e5e7eb}.border-gray-300{border-color:#d1d5db}.border-orange-300{border-color:#fdba74}.border-green-300{border-color:#86efac}.border-red-200{border-color:#fecaca}
     .shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,0.25)}
-    .cursor-pointer{cursor:pointer}.overflow-auto{overflow-y:auto}.overflow-hidden{overflow:hidden}.max-h-96{max-height:24rem}.max-h-64{max-height:16rem}
-    .fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{top:0;right:0;bottom:0;left:0}.z-50{z-index:50}
+    .overflow-auto{overflow:auto}.fixed{position:fixed}.inset-0{top:0;right:0;bottom:0;left:0}.z-50{z-index:50}
     .overlay{background:rgba(0,0,0,0.5)}
-    .truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .hidden{display:none}
+    .cursor-pointer{cursor:pointer}
     button{border:none;cursor:pointer;font-family:inherit;transition:all 0.15s}
     button:hover:not(:disabled){filter:brightness(0.92)}
     button:disabled{opacity:0.5;cursor:not-allowed}
-    input,select{font-family:inherit;font-size:1rem;padding:0.5rem 0.75rem;border:2px solid #d1d5db;border-radius:0.5rem;outline:none;width:100%}
-    input:focus,select:focus{border-color:#6366f1}
+    input,select,textarea{font-family:inherit;font-size:1rem;padding:0.5rem 0.75rem;border:2px solid #d1d5db;border-radius:0.5rem;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:#6366f1}
     .icon{display:inline-flex;align-items:center;justify-content:center}
     .progress-bar{height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden}
     .progress-fill{height:100%;border-radius:4px;transition:width 0.3s ease}
-    .chart-bar{transition:height 0.3s ease}
-    .streak-badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.25rem 0.5rem;border-radius:9999px;font-size:0.75rem;font-weight:600}
-    .quick-log-btn{padding:0.5rem 1rem;border-radius:0.5rem;font-weight:500;background:#f3f4f6;color:#4b5563;border:2px solid transparent}
-    .quick-log-btn:hover{background:#e5e7eb}
-    .quick-log-btn.selected{background:#eef2ff;border-color:#6366f1;color:#4f46e5}
-    .day-btn{padding:0.5rem 0.75rem;border-radius:0.5rem;font-weight:500;background:#f3f4f6;color:#4b5563;border:2px solid transparent;font-size:0.875rem}
-    .day-btn:hover{background:#e5e7eb}
-    .day-btn.active{background:#4f46e5;border-color:#4f46e5;color:#fff}
-    .day-btn.today{border-color:#10b981}
-    .exercise-chip{padding:0.375rem 0.75rem;border-radius:0.5rem;font-size:0.875rem;background:#f3f4f6;color:#4b5563;border:2px solid transparent;cursor:pointer}
-    .exercise-chip:hover{background:#e5e7eb}
-    .exercise-chip.selected{background:#eef2ff;border-color:#6366f1;color:#4f46e5}
-    .exercise-chip.done{background:#d1fae5;color:#065f46;border-color:#6ee7b7}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:0.5rem;text-align:center;border-bottom:1px solid #e5e7eb}
+    th{background:#f9fafb;font-weight:600;color:#6b7280;font-size:0.75rem;text-transform:uppercase;position:sticky;top:0}
+    td{font-size:0.875rem}
+    .exercise-name{text-align:left;font-weight:500;color:#1f2937;white-space:nowrap}
+    .week-cell{width:50px;min-width:50px}
+    .week-input{width:45px;padding:0.25rem;font-size:0.75rem;text-align:center}
+    .freq-badge{font-size:0.65rem;padding:0.125rem 0.375rem;border-radius:9999px;font-weight:600}
+    .freq-1x{background:#f3e8ff;color:#7c3aed}
+    .freq-2x{background:#dbeafe;color:#1d4ed8}
+    .freq-3x{background:#fef3c7;color:#d97706}
+    .freq-3x{background:#fef3c7;color:#b45309}
+    .complete-row{background:#f0fdf4}
+    .complete-cell{color:#16a34a;font-weight:600}
+    .section-header{background:#f3f4f6;font-weight:700;color:#4b5563;text-align:left;padding:0.75rem}
+    .page-tab{padding:0.75rem 1.5rem;border-radius:0.5rem 0.5rem 0 0;font-weight:600;background:#e5e7eb;color:#4b5563;border:none;margin-right:0.25rem}
+    .page-tab.active{background:#fff;color:#4f46e5;box-shadow:0 -2px 10px rgba(0,0,0,0.05)}
+    .view-tab{padding:0.5rem 1rem;border-radius:0.5rem;font-weight:500;background:#f3f4f6;color:#4b5563}
+    .view-tab.active{background:#4f46e5;color:#fff}
+    .nav-btn{padding:0.5rem 1rem;border-radius:0.5rem;font-weight:500;background:#f3f4f6;color:#4b5563}
+    .nav-btn:hover{background:#e5e7eb}
+    .stat-card{padding:1rem;border-radius:0.75rem;text-align:center}
+    .stat-value{font-size:1.5rem;font-weight:700}
+    .stat-label{font-size:0.75rem;font-weight:600;text-transform:uppercase;margin-bottom:0.25rem}
+    .exercise-row{padding:0.75rem;border-radius:0.5rem;margin-bottom:0.5rem;cursor:pointer;transition:all 0.15s}
+    .exercise-row:hover{background:#f3f4f6}
+    .exercise-row.selected{background:#eef2ff;border:2px solid #6366f1}
+    .mini-chart{display:flex;align-items:flex-end;gap:2px;height:40px}
+    .mini-bar{flex:1;background:#6366f1;border-radius:2px 2px 0 0;min-width:4px;transition:height 0.3s}
     @media(max-width:768px){
-      .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
-      .hide-mobile{display:none}
-      .mobile-full{grid-template-columns:1fr}
-    }
-    @media(max-width:480px){
-      .grid-2{grid-template-columns:1fr}
       .container{padding:0.5rem}
       .card{padding:1rem}
+      .hide-mobile{display:none}
+      th,td{padding:0.25rem;font-size:0.7rem}
+      .week-input{width:35px}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
     }
   </style>
 </head>
@@ -81,72 +85,65 @@
 <div class="container" id="app"></div>
 
 <script>
-// Icons as SVG strings
 const icons = {
-  trend: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`,
-  download: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
-  plus: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
   calendar: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
   chart: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
-  sort: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>`,
-  trash: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>`,
-  history: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>`,
-  edit: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
-  fire: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`,
-  fireLg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`,
-  target: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
-  x: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
-  chevronDown: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>`,
-  chevronUp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>`,
-  zap: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-  settings: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
-  shuffle: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>`,
+  download: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
+  plus: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
+  left: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>`,
+  right: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>`,
+  x: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
 };
 
-function icon(name, size) {
-  let svg = icons[name] || '';
-  if (size) {
-    svg = svg.replace(/width="\d+"/, `width="${size}"`).replace(/height="\d+"/, `height="${size}"`);
-  }
-  return `<span class="icon">${svg}</span>`;
+function icon(name) {
+  return `<span class="icon">${icons[name] || ''}</span>`;
 }
 
-// State
 let state = {
   exercises: [],
   records: [],
-  sortBy: 'dateAddedNewest',
-  showAddExercise: false,
-  showHistory: false,
-  showDailyStats: false,
   showImport: false,
-  selectedExerciseId: null,
-  amount: '',
-  recordDate: new Date().toISOString().split('T')[0],
-  newExerciseName: '',
-  historyFilter: 'all',
-  expandedExercise: null,
-  quickLogExerciseId: null,
-  quickLogAmount: '',
-  selectedDay: null,
-  // Modals
-  editExercise: null,
-  editRecord: null,
-  deleteConfirmId: null,
+  showExerciseEditor: false,
+  page: 'log', // 'log' or 'stats'
+  view: 'weekly', // 'weekly', 'monthly', 'yearly'
+  // Date navigation
+  selectedWeekStart: null,
+  selectedMonth: null, // { year, month }
+  selectedYear: null,
+  // Stats
+  selectedExercise: null,
 };
 
-// Workout schedule by day
-const workoutSchedule = {
-  Monday: ['Muay Thai', 'Impossible Pushup'],
-  Tuesday: ['Patrick Bateman Sit Ups', 'Pushups', 'Pullups', 'Levitation Squats', 'Squats', 'Six Inches', 'Calf Raises', 'Plank', 'Glute Bridge', 'Hindu Pushups'],
-  Wednesday: ['Jumping Jacks', 'Kick Outs', 'Sit ups 60 sec.', 'Side Plank', 'Superman', 'Reverse Snow Angels', 'Side to Side Lunges', 'Mountain Climbers', 'Alpine Climbers', 'Walking Pushups', 'Tuck Jumps', 'Vsit'],
-  Thursday: ['Patrick Bateman Sit Ups', 'Pushups', 'Pullups', 'Levitation Squats', 'Squats', 'Six Inches', 'Calf Raises', 'Plank', 'Glute Bridge', 'Hindu Pushups'],
-  Friday: ['Grip Strength Left', 'Grip Strength Right', 'Eyes Closed One Leg Stand', 'Weighted Punch', 'Pushups Full', 'Wall Sit', 'Dips', 'Defensive Stance', 'Arm Hold', 'Butterflys'],
-  Saturday: ['1 mile', 'Walk 30 min. (vest)', 'Dumbbell Curls', 'Forearm Curls', 'Tricep Extention', 'Shoulder Shrugs'],
-  Sunday: ['Murph']
-};
+// All exercises
+let twiceWeeklyExercises = [
+  'Patrick Bateman Sit Ups', 'Pushups', 'Pullups', 'Levitation Squats', 'Squats', 
+  'Six Inches', 'Calf Raises', 'Plank', 'Glute Bridge', 'Hindu Pushups',
+  'Jumping Jacks', 'Kick Outs', 'Sit ups 60 sec.', 'Side Plank', 'Superman', 
+  'Reverse Snow Angels', 'Side to Side Lunges', 'Mountain Climbers', 'Alpine Climbers', 
+  'Walking Pushups', 'Tuck Jumps', 'Vsit',
+  'Grip Strength Left', 'Grip Strength Right', 'Eyes Closed One Leg Stand', 
+  'Weighted Punch', 'Pushups Full', 'Wall Sit', 'Dips', 'Defensive Stance'
+];
 
-// Load from localStorage
+let onceWeeklyExercises = [
+  'Muay Thai', 'Impossible Pushup', 'Arm Hold', 'Butterflys',
+  '1 mile', 'Walk 30 min. (vest)', 'Dumbbell Curls', 'Forearm Curls', 
+  'Tricep Extention', 'Shoulder Shrugs', 'Murph'
+];
+
+let thriceWeeklyExercises = [];
+
+function getAllExercises() {
+  return [...new Set([...twiceWeeklyExercises, ...onceWeeklyExercises, ...thriceWeeklyExercises])];
+}
+
+function getExerciseFrequency(name) {
+  if (thriceWeeklyExercises.includes(name)) return 3;
+  if (twiceWeeklyExercises.includes(name)) return 2;
+  if (onceWeeklyExercises.includes(name)) return 1;
+  return 2; // default
+}
+
 function loadState() {
   try {
     const e = localStorage.getItem('ex_exercises');
@@ -154,270 +151,657 @@ function loadState() {
     if (e) state.exercises = JSON.parse(e);
     if (r) state.records = JSON.parse(r);
   } catch (err) { console.log(err); }
+  
+  // Initialize date selections
+  const now = getNYDate();
+  state.selectedWeekStart = getWeekStartDate(now);
+  state.selectedMonth = { year: now.getFullYear(), month: now.getMonth() };
+  state.selectedYear = now.getFullYear();
 }
 
-function saveExercises() {
-  localStorage.setItem('ex_exercises', JSON.stringify(state.exercises));
+function saveExercises() { localStorage.setItem('ex_exercises', JSON.stringify(state.exercises)); }
+function saveRecords() { localStorage.setItem('ex_records', JSON.stringify(state.records)); }
+
+function getNYDate() {
+  return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
 }
 
-function saveRecords() {
-  localStorage.setItem('ex_records', JSON.stringify(state.records));
-}
-
-// Helpers
 function todayStr() {
   return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
 }
 
-function getTodayDayName() {
-  return new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York', weekday: 'long' });
+function getWeekStartDate(date) {
+  const d = new Date(date);
+  d.setDate(d.getDate() - d.getDay());
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function getWeekDatesFrom(startDate) {
+  const dates = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(startDate);
+    d.setDate(d.getDate() + i);
+    dates.push(d.toISOString().split('T')[0]);
+  }
+  return dates;
+}
+
+function getMonthWeeksFrom(year, month) {
+  const weeks = [];
+  let current = new Date(year, month, 1);
+  current.setDate(current.getDate() - current.getDay());
+  
+  while (current.getMonth() <= month || (month === 11 && current.getMonth() === 0)) {
+    const weekStart = new Date(current);
+    const weekEnd = new Date(current);
+    weekEnd.setDate(weekEnd.getDate() + 6);
+    
+    if (weekEnd.getMonth() === month || weekStart.getMonth() === month) {
+      weeks.push({
+        start: weekStart.toISOString().split('T')[0],
+        end: weekEnd.toISOString().split('T')[0],
+        label: `${weekStart.getMonth()+1}/${weekStart.getDate()}`
+      });
+    }
+    
+    current.setDate(current.getDate() + 7);
+    if (current.getMonth() > month && current.getFullYear() >= year) break;
+    if (weeks.length > 6) break;
+  }
+  return weeks;
+}
+
+function getYearMonthsFrom(year) {
+  const months = [];
+  for (let m = 0; m < 12; m++) {
+    const start = new Date(year, m, 1);
+    const end = new Date(year, m + 1, 0);
+    months.push({
+      start: start.toISOString().split('T')[0],
+      end: end.toISOString().split('T')[0],
+      label: start.toLocaleDateString('en-US', { month: 'short' })
+    });
+  }
+  return months;
 }
 
 function findExerciseByName(name) {
   return state.exercises.find(ex => ex.name.toLowerCase() === name.toLowerCase());
 }
 
-function isExerciseLoggedToday(exerciseName) {
-  const ex = findExerciseByName(exerciseName);
-  if (!ex) return false;
-  const today = todayStr();
-  return state.records.some(r => r.exerciseId === ex.id && r.date === today);
-}
-
-function getStats(exerciseId) {
-  const recs = state.records.filter(r => r.exerciseId === exerciseId).sort((a, b) => new Date(b.date) - new Date(a.date));
-  if (!recs.length) return { max: 0, average: 0, last4Average: 0, last10Average: 0, count: 0, lastDate: null, streak: 0, chartData: [] };
-  
-  const amounts = recs.map(r => r.amount);
-  const max = Math.max(...amounts);
-  const average = amounts.reduce((a, b) => a + b, 0) / amounts.length;
-  const last4 = recs.slice(0, 4);
-  const last10 = recs.slice(0, 10);
-  
-  // Calculate streak
-  let streak = 0;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const uniqueDates = [...new Set(recs.map(r => r.date))].sort((a, b) => new Date(b) - new Date(a));
-  
-  for (let i = 0; i < uniqueDates.length; i++) {
-    const checkDate = new Date(today);
-    checkDate.setDate(checkDate.getDate() - i);
-    const checkDateStr = checkDate.toISOString().split('T')[0];
-    if (uniqueDates.includes(checkDateStr)) {
-      streak++;
-    } else if (i === 0) {
-      continue;
-    } else {
-      break;
-    }
-  }
-
-  const chartData = recs.slice(0, 10).reverse().map(r => ({ date: r.date, amount: r.amount }));
-
-  return {
-    max, average,
-    last4Average: last4.length ? last4.reduce((a, b) => a + b.amount, 0) / last4.length : 0,
-    last10Average: last10.length ? last10.reduce((a, b) => a + b.amount, 0) / last10.length : 0,
-    count: recs.length,
-    lastDate: recs[0].date,
-    streak,
-    chartData
-  };
-}
-
-function getTodayCount() {
-  const today = todayStr();
-  return new Set(state.records.filter(r => r.date === today).map(r => r.exerciseId)).size;
-}
-
-function getOverallStreak() {
-  if (!state.records.length) return 0;
-  const dateSet = new Set(state.records.map(r => r.date));
-  let streak = 0;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  
-  for (let i = 0; i < 365; i++) {
-    const checkDate = new Date(today);
-    checkDate.setDate(checkDate.getDate() - i);
-    const checkDateStr = checkDate.toISOString().split('T')[0];
-    if (dateSet.has(checkDateStr)) {
-      streak++;
-    } else if (i === 0) {
-      continue;
-    } else {
-      break;
-    }
-  }
-  return streak;
-}
-
-function getDailyStats() {
-  const stats = {};
-  state.records.forEach(r => { if (!stats[r.date]) stats[r.date] = new Set(); stats[r.date].add(r.exerciseId); });
-  if (state.records.length) {
-    const dates = state.records.map(r => new Date(r.date));
-    const earliest = new Date(Math.min(...dates));
-    const today = new Date();
-    for (let d = new Date(earliest); d <= today; d.setDate(d.getDate() + 1)) {
-      const ds = d.toISOString().split('T')[0];
-      if (!stats[ds]) stats[ds] = new Set();
-    }
-  } else {
-    stats[todayStr()] = new Set();
-  }
-  return Object.entries(stats).map(([date, set]) => ({ date, count: set.size })).sort((a, b) => new Date(b.date) - new Date(a.date));
-}
-
-function getSortedExercises() {
-  const list = state.exercises.map(ex => {
-    const s = getStats(ex.id);
-    return { ...ex, logCount: s.count, lastDate: s.lastDate, percentDiff: s.max > 0 ? (s.last10Average / s.max) * 100 : 0, streak: s.streak };
-  });
-  switch(state.sortBy) {
-    case 'dateAddedNewest': return list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-    case 'dateAddedOldest': return list.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-    case 'alphabetical': return list.sort((a, b) => a.name.localeCompare(b.name));
-    case 'mostLogs': return list.sort((a, b) => b.logCount - a.logCount);
-    case 'fewestLogs': return list.sort((a, b) => a.logCount - b.logCount);
-    case 'lastCompletedRecent': return list.sort((a, b) => { if (!a.lastDate) return 1; if (!b.lastDate) return -1; return new Date(b.lastDate) - new Date(a.lastDate); });
-    case 'lastCompletedOldest': return list.sort((a, b) => { if (!a.lastDate) return 1; if (!b.lastDate) return -1; return new Date(a.lastDate) - new Date(b.lastDate); });
-    case 'percentDiff': return list.sort((a, b) => b.percentDiff - a.percentDiff);
-    case 'streak': return list.sort((a, b) => b.streak - a.streak);
-    default: return list;
-  }
-}
-
-function getFilteredHistory() {
-  let filtered = [...state.records];
-  if (state.historyFilter !== 'all') {
-    filtered = filtered.filter(r => r.exerciseId === state.historyFilter);
-  }
-  return filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-}
-
-// Actions
-function addExercise() {
-  if (state.newExerciseName.trim()) {
-    state.exercises.push({
-      id: Date.now().toString(),
-      name: state.newExerciseName.trim(),
-      createdAt: new Date().toISOString(),
-      goal: null
-    });
-    state.newExerciseName = '';
-    state.showAddExercise = false;
-    saveExercises();
-    render();
-  }
-}
-
-function addRecord() {
-  if (state.selectedExerciseId && state.amount && state.recordDate) {
-    state.records.push({
-      id: Date.now().toString(),
-      exerciseId: state.selectedExerciseId,
-      amount: parseFloat(state.amount),
-      date: state.recordDate,
-      timestamp: new Date().toISOString()
-    });
-    state.amount = '';
-    state.recordDate = todayStr();
-    saveRecords();
-    render();
-  }
-}
-
-function quickLog() {
-  if (state.quickLogExerciseId && state.quickLogAmount) {
-    state.records.push({
-      id: Date.now().toString(),
-      exerciseId: state.quickLogExerciseId,
-      amount: parseFloat(state.quickLogAmount),
-      date: todayStr(),
-      timestamp: new Date().toISOString()
-    });
-    state.quickLogAmount = '';
-    state.quickLogExerciseId = null;
-    saveRecords();
-    render();
-  }
-}
-
-function selectRandomExercise() {
-  if (state.exercises.length === 0) return;
-  
-  // Get exercises already logged today
-  const today = todayStr();
-  const loggedTodayIds = new Set(state.records.filter(r => r.date === today).map(r => r.exerciseId));
-  
-  // Filter to exercises not yet logged today
-  const available = state.exercises.filter(ex => !loggedTodayIds.has(ex.id));
-  
-  // If all exercises done today, pick from all exercises
-  const pool = available.length > 0 ? available : state.exercises;
-  
-  const randomIndex = Math.floor(Math.random() * pool.length);
-  const randomExercise = pool[randomIndex];
-  state.quickLogExerciseId = randomExercise.id;
-  state.quickLogAmount = '';
-  render();
-  setTimeout(() => {
-    const el = document.getElementById('quickAmountInput');
-    if (el) el.focus();
-  }, 0);
-}
-
-function selectDayExercise(exerciseName) {
-  let ex = findExerciseByName(exerciseName);
-  
-  // If exercise doesn't exist, create it
+function ensureExerciseExists(name) {
+  let ex = findExerciseByName(name);
   if (!ex) {
-    ex = {
-      id: Date.now().toString(),
-      name: exerciseName,
-      createdAt: new Date().toISOString(),
-      goal: null
-    };
+    ex = { id: Date.now().toString() + Math.random(), name, createdAt: new Date().toISOString(), goal: null };
     state.exercises.push(ex);
     saveExercises();
   }
+  return ex;
+}
+
+function getRecordForDate(exerciseId, dateStr) {
+  return state.records.find(r => r.exerciseId === exerciseId && r.date === dateStr);
+}
+
+function getRecordsInRange(exerciseId, startDate, endDate) {
+  return state.records.filter(r => r.exerciseId === exerciseId && r.date >= startDate && r.date <= endDate);
+}
+
+function getCountInRange(exerciseId, startDate, endDate) {
+  return getRecordsInRange(exerciseId, startDate, endDate).length;
+}
+
+function getWeeklyCountFrom(exerciseId, weekStart) {
+  const dates = getWeekDatesFrom(weekStart);
+  return state.records.filter(r => r.exerciseId === exerciseId && dates.includes(r.date)).length;
+}
+
+function getExerciseStats(exerciseId) {
+  const recs = state.records.filter(r => r.exerciseId === exerciseId).sort((a, b) => new Date(b.date) - new Date(a.date));
+  if (!recs.length) return { max: 0, min: 0, avg: 0, total: 0, count: 0, last7Avg: 0, l7MaxRatio: 0, stdDev: 0, median: 0, recentTrend: 0, bestDay: null, firstDate: null, lastDate: null };
   
-  state.quickLogExerciseId = ex.id;
-  state.quickLogAmount = '';
-  render();
-  setTimeout(() => {
-    const el = document.getElementById('quickAmountInput');
-    if (el) el.focus();
-  }, 0);
+  const amounts = recs.map(r => r.amount);
+  const max = Math.max(...amounts);
+  const min = Math.min(...amounts);
+  const total = amounts.reduce((a, b) => a + b, 0);
+  const avg = total / amounts.length;
+  const count = recs.length;
+  
+  const last7 = recs.slice(0, 7);
+  const last7Avg = last7.reduce((sum, r) => sum + r.amount, 0) / last7.length;
+  const l7MaxRatio = max > 0 ? (last7Avg / max) * 100 : 0;
+  
+  // Standard deviation
+  const squareDiffs = amounts.map(a => Math.pow(a - avg, 2));
+  const stdDev = Math.sqrt(squareDiffs.reduce((a, b) => a + b, 0) / amounts.length);
+  
+  // Median
+  const sorted = [...amounts].sort((a, b) => a - b);
+  const median = sorted.length % 2 === 0 ? (sorted[sorted.length/2 - 1] + sorted[sorted.length/2]) / 2 : sorted[Math.floor(sorted.length/2)];
+  
+  // Recent trend (last 7 vs previous 7)
+  const prev7 = recs.slice(7, 14);
+  const prev7Avg = prev7.length > 0 ? prev7.reduce((sum, r) => sum + r.amount, 0) / prev7.length : 0;
+  const recentTrend = prev7Avg > 0 ? ((last7Avg - prev7Avg) / prev7Avg) * 100 : 0;
+  
+  // Best day of week
+  const dayTotals = [0,0,0,0,0,0,0];
+  const dayCounts = [0,0,0,0,0,0,0];
+  recs.forEach(r => {
+    const day = new Date(r.date + 'T00:00:00').getDay();
+    dayTotals[day] += r.amount;
+    dayCounts[day]++;
+  });
+  const dayAvgs = dayTotals.map((t, i) => dayCounts[i] > 0 ? t / dayCounts[i] : 0);
+  const bestDayIdx = dayAvgs.indexOf(Math.max(...dayAvgs));
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  
+  return {
+    max, min, avg, total, count, last7Avg, l7MaxRatio, stdDev, median, recentTrend,
+    bestDay: dayNames[bestDayIdx],
+    firstDate: recs[recs.length - 1].date,
+    lastDate: recs[0].date,
+    chartData: recs.slice(0, 30).reverse()
+  };
 }
 
-function updateExercise(id, updates) {
-  state.exercises = state.exercises.map(ex => ex.id === id ? { ...ex, ...updates } : ex);
+function getOverallStats() {
+  const allExercises = getAllExercises();
+  const weekDates = getWeekDatesFrom(state.selectedWeekStart);
+  const today = todayStr();
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  
+  // Total records
+  const totalRecords = state.records.length;
+  const totalExercises = allExercises.length;
+  
+  // This week's stats
+  const thisWeekRecords = state.records.filter(r => weekDates.includes(r.date));
+  const thisWeekCount = thisWeekRecords.length;
+  const thisWeekTotal = thisWeekRecords.reduce((sum, r) => sum + r.amount, 0);
+  
+  // Today's stats
+  const todayRecords = state.records.filter(r => r.date === today);
+  const todayCount = todayRecords.length;
+  
+  // Most done exercise (by count)
+  const exerciseCounts = {};
+  state.records.forEach(r => {
+    exerciseCounts[r.exerciseId] = (exerciseCounts[r.exerciseId] || 0) + 1;
+  });
+  let mostDoneId = null, mostDoneCount = 0;
+  Object.entries(exerciseCounts).forEach(([id, count]) => {
+    if (count > mostDoneCount) { mostDoneId = id; mostDoneCount = count; }
+  });
+  const mostDoneExercise = mostDoneId ? state.exercises.find(e => e.id === mostDoneId) : null;
+  
+  // Least done exercise (that exists and has been done at least once)
+  let leastDoneId = null, leastDoneCount = Infinity;
+  Object.entries(exerciseCounts).forEach(([id, count]) => {
+    if (count < leastDoneCount) { leastDoneId = id; leastDoneCount = count; }
+  });
+  const leastDoneExercise = leastDoneId ? state.exercises.find(e => e.id === leastDoneId) : null;
+  
+  // Exercise to do now (not done this week, or done least relative to target)
+  let shouldDoNow = null;
+  let lowestCompletion = Infinity;
+  allExercises.forEach(name => {
+    const ex = findExerciseByName(name);
+    if (!ex) return;
+    const freq = getExerciseFrequency(name);
+    const weekCount = state.records.filter(r => r.exerciseId === ex.id && weekDates.includes(r.date)).length;
+    const completion = weekCount / freq;
+    if (completion < lowestCompletion && completion < 1) {
+      lowestCompletion = completion;
+      shouldDoNow = name;
+    }
+  });
+  
+  // Best day of week (most exercises done)
+  const dayTotals = [0,0,0,0,0,0,0];
+  state.records.forEach(r => {
+    const day = new Date(r.date + 'T00:00:00').getDay();
+    dayTotals[day]++;
+  });
+  const bestDayIdx = dayTotals.indexOf(Math.max(...dayTotals));
+  const worstDayIdx = dayTotals.indexOf(Math.min(...dayTotals.filter(d => d > 0) || [0]));
+  
+  // Streak - consecutive days with at least one exercise
+  let currentStreak = 0;
+  let d = new Date(today);
+  while (true) {
+    const dateStr = d.toISOString().split('T')[0];
+    if (state.records.some(r => r.date === dateStr)) {
+      currentStreak++;
+      d.setDate(d.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+  
+  // Longest streak
+  const allDates = [...new Set(state.records.map(r => r.date))].sort();
+  let longestStreak = 0, tempStreak = 1;
+  for (let i = 1; i < allDates.length; i++) {
+    const prev = new Date(allDates[i-1]);
+    const curr = new Date(allDates[i]);
+    const diff = (curr - prev) / (1000 * 60 * 60 * 24);
+    if (diff === 1) {
+      tempStreak++;
+    } else {
+      longestStreak = Math.max(longestStreak, tempStreak);
+      tempStreak = 1;
+    }
+  }
+  longestStreak = Math.max(longestStreak, tempStreak);
+  
+  // Completion rate this week
+  let expectedThisWeek = 0;
+  let completedThisWeek = 0;
+  allExercises.forEach(name => {
+    const freq = getExerciseFrequency(name);
+    expectedThisWeek += freq;
+    const ex = findExerciseByName(name);
+    if (ex) {
+      completedThisWeek += Math.min(state.records.filter(r => r.exerciseId === ex.id && weekDates.includes(r.date)).length, freq);
+    }
+  });
+  const weeklyCompletionRate = expectedThisWeek > 0 ? (completedThisWeek / expectedThisWeek) * 100 : 0;
+  
+  // Average exercises per day (all time)
+  const uniqueDays = new Set(state.records.map(r => r.date)).size;
+  const avgPerDay = uniqueDays > 0 ? totalRecords / uniqueDays : 0;
+  
+  // Exercises never done
+  const neverDone = allExercises.filter(name => {
+    const ex = findExerciseByName(name);
+    return !ex || !state.records.some(r => r.exerciseId === ex.id);
+  });
+  
+  // Recent activity (last 7 days counts)
+  const last7Days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toISOString().split('T')[0];
+    const count = state.records.filter(r => r.date === dateStr).length;
+    last7Days.push({ date: dateStr, count, dayName: dayNames[d.getDay()].slice(0, 3) });
+  }
+  
+  return {
+    totalRecords,
+    totalExercises,
+    thisWeekCount,
+    thisWeekTotal,
+    todayCount,
+    mostDoneExercise: mostDoneExercise?.name,
+    mostDoneCount,
+    leastDoneExercise: leastDoneExercise?.name,
+    leastDoneCount,
+    shouldDoNow,
+    bestDay: dayNames[bestDayIdx],
+    worstDay: dayNames[worstDayIdx],
+    currentStreak,
+    longestStreak,
+    weeklyCompletionRate,
+    completedThisWeek,
+    expectedThisWeek,
+    avgPerDay,
+    neverDone,
+    uniqueDays,
+    last7Days
+  };
+}
+
+function getAllExercisesOverviewStats() {
+  const allEx = getAllExercises();
+  const weekDates = getWeekDatesFrom(state.selectedWeekStart);
+  const today = todayStr();
+  
+  // Total logs
+  const totalLogs = state.records.length;
+  
+  // Unique exercises logged
+  const loggedExerciseIds = [...new Set(state.records.map(r => r.exerciseId))];
+  const uniqueExercisesLogged = loggedExerciseIds.length;
+  
+  // This week stats
+  const thisWeekLogs = state.records.filter(r => weekDates.includes(r.date)).length;
+  
+  // Today stats
+  const todayLogs = state.records.filter(r => r.date === today).length;
+  
+  // Most done exercise (by count)
+  const exerciseCounts = {};
+  state.records.forEach(r => {
+    exerciseCounts[r.exerciseId] = (exerciseCounts[r.exerciseId] || 0) + 1;
+  });
+  let mostDoneExercise = null;
+  let mostDoneCount = 0;
+  Object.entries(exerciseCounts).forEach(([id, count]) => {
+    if (count > mostDoneCount) {
+      mostDoneCount = count;
+      const ex = state.exercises.find(e => e.id === id);
+      if (ex) mostDoneExercise = ex.name;
+    }
+  });
+  
+  // Least done exercise (that has at least 1 log)
+  let leastDoneExercise = null;
+  let leastDoneCount = Infinity;
+  Object.entries(exerciseCounts).forEach(([id, count]) => {
+    if (count < leastDoneCount) {
+      leastDoneCount = count;
+      const ex = state.exercises.find(e => e.id === id);
+      if (ex) leastDoneExercise = ex.name;
+    }
+  });
+  if (leastDoneCount === Infinity) leastDoneCount = 0;
+  
+  // Exercise you should do right now (incomplete this week, prioritize by how far behind)
+  const shouldDoNow = [];
+  allEx.forEach(name => {
+    const ex = findExerciseByName(name);
+    const freq = getExerciseFrequency(name);
+    const weekCount = ex ? state.records.filter(r => r.exerciseId === ex.id && weekDates.includes(r.date)).length : 0;
+    const remaining = freq - weekCount;
+    if (remaining > 0) {
+      shouldDoNow.push({ name, remaining, freq, weekCount });
+    }
+  });
+  shouldDoNow.sort((a, b) => b.remaining - a.remaining || a.name.localeCompare(b.name));
+  
+  // Current streak (consecutive days with at least 1 log)
+  let currentStreak = 0;
+  const checkDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  while (true) {
+    const dateStr = checkDate.toISOString().split('T')[0];
+    const hasLog = state.records.some(r => r.date === dateStr);
+    if (hasLog) {
+      currentStreak++;
+      checkDate.setDate(checkDate.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+  
+  // Best day of week overall
+  const dayTotals = [0,0,0,0,0,0,0];
+  state.records.forEach(r => {
+    const day = new Date(r.date + 'T00:00:00').getDay();
+    dayTotals[day]++;
+  });
+  const bestDayIdx = dayTotals.indexOf(Math.max(...dayTotals));
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  
+  // Average logs per day (days with at least 1 log)
+  const uniqueDays = [...new Set(state.records.map(r => r.date))];
+  const avgLogsPerDay = uniqueDays.length > 0 ? totalLogs / uniqueDays.length : 0;
+  
+  // Weekly completion rate
+  const weeklyProgress = getWeeklyProgress();
+  const completionRate = weeklyProgress.total > 0 ? (weeklyProgress.done / weeklyProgress.total) * 100 : 0;
+  
+  // First and last log dates
+  const sortedRecords = [...state.records].sort((a, b) => new Date(a.date) - new Date(b.date));
+  const firstLogDate = sortedRecords.length > 0 ? sortedRecords[0].date : null;
+  const lastLogDate = sortedRecords.length > 0 ? sortedRecords[sortedRecords.length - 1].date : null;
+  
+  // Days since started
+  const daysSinceStart = firstLogDate ? Math.floor((new Date() - new Date(firstLogDate)) / (1000 * 60 * 60 * 24)) : 0;
+  
+  return {
+    totalLogs,
+    uniqueExercisesLogged,
+    totalExercises: allEx.length,
+    thisWeekLogs,
+    todayLogs,
+    mostDoneExercise,
+    mostDoneCount,
+    leastDoneExercise,
+    leastDoneCount,
+    shouldDoNow: shouldDoNow.slice(0, 5),
+    currentStreak,
+    bestDay: dayNames[bestDayIdx],
+    avgLogsPerDay,
+    completionRate,
+    firstLogDate,
+    lastLogDate,
+    daysSinceStart,
+    uniqueDays: uniqueDays.length
+  };
+}
+
+function getWeeklyProgress() {
+  const weekDates = getWeekDatesFrom(state.selectedWeekStart);
+  let done = 0, total = 0;
+  
+  getAllExercises().forEach(name => {
+    const ex = findExerciseByName(name);
+    const freq = getExerciseFrequency(name);
+    total += freq;
+    if (ex) {
+      done += Math.min(state.records.filter(r => r.exerciseId === ex.id && weekDates.includes(r.date)).length, freq);
+    }
+  });
+  
+  return { done, total };
+}
+
+// Navigation
+function prevPeriod() {
+  if (state.view === 'weekly') {
+    state.selectedWeekStart = new Date(state.selectedWeekStart.getTime() - 7 * 24 * 60 * 60 * 1000);
+  } else if (state.view === 'monthly') {
+    state.selectedMonth.month--;
+    if (state.selectedMonth.month < 0) { state.selectedMonth.month = 11; state.selectedMonth.year--; }
+  } else {
+    state.selectedYear--;
+  }
+  render();
+}
+
+function nextPeriod() {
+  if (state.view === 'weekly') {
+    state.selectedWeekStart = new Date(state.selectedWeekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+  } else if (state.view === 'monthly') {
+    state.selectedMonth.month++;
+    if (state.selectedMonth.month > 11) { state.selectedMonth.month = 0; state.selectedMonth.year++; }
+  } else {
+    state.selectedYear++;
+  }
+  render();
+}
+
+function goToToday() {
+  const now = getNYDate();
+  state.selectedWeekStart = getWeekStartDate(now);
+  state.selectedMonth = { year: now.getFullYear(), month: now.getMonth() };
+  state.selectedYear = now.getFullYear();
+  render();
+}
+
+// Actions
+function logFromInput(exerciseName, dateStr, inputId) {
+  const input = document.getElementById(inputId);
+  if (!input || !input.value || isNaN(parseFloat(input.value))) return;
+  
+  const ex = ensureExerciseExists(exerciseName);
+  const existing = getRecordForDate(ex.id, dateStr);
+  
+  if (existing) { existing.amount = parseFloat(input.value); }
+  else { state.records.push({ id: Date.now().toString() + Math.random(), exerciseId: ex.id, amount: parseFloat(input.value), date: dateStr, timestamp: new Date().toISOString() }); }
+  
+  saveRecords();
+  render();
+}
+
+function logAllFilled() {
+  const weekDates = getWeekDatesFrom(state.selectedWeekStart);
+  let logged = 0;
+  
+  getAllExercises().forEach(name => {
+    weekDates.forEach((dateStr, i) => {
+      const inputId = `input-${name.replace(/[^a-zA-Z0-9]/g, '-')}-${i}`;
+      const input = document.getElementById(inputId);
+      if (input && input.value && !isNaN(parseFloat(input.value))) {
+        const ex = ensureExerciseExists(name);
+        const existing = getRecordForDate(ex.id, dateStr);
+        if (existing) { existing.amount = parseFloat(input.value); }
+        else { state.records.push({ id: Date.now().toString() + Math.random(), exerciseId: ex.id, amount: parseFloat(input.value), date: dateStr, timestamp: new Date().toISOString() }); }
+        logged++;
+      }
+    });
+  });
+  
+  if (logged > 0) { saveRecords(); render(); }
+}
+
+function addAllExercises() {
+  let added = 0;
+  getAllExercises().forEach(name => {
+    if (!findExerciseByName(name)) {
+      state.exercises.push({ id: Date.now().toString() + Math.random(), name, createdAt: new Date().toISOString(), goal: null });
+      added++;
+    }
+  });
+  if (added > 0) { saveExercises(); render(); alert(`Added ${added} exercises!`); }
+  else { alert('All exercises already exist.'); }
+}
+
+function clearAllData() {
+  if (confirm('Clear ALL data?')) {
+    state.exercises = []; state.records = [];
+    saveExercises(); saveRecords(); render();
+  }
+}
+
+function openExerciseEditor() {
+  state.showExerciseEditor = true;
+  render();
+}
+
+function closeExerciseEditor() {
+  state.showExerciseEditor = false;
+  render();
+}
+
+function addSingleExercise(name, freq) {
+  if (!name.trim()) return;
+  const trimmed = name.trim();
+  if (findExerciseByName(trimmed)) {
+    alert('Exercise already exists!');
+    return;
+  }
+  
+  state.exercises.push({
+    id: Date.now().toString() + Math.random(),
+    name: trimmed,
+    createdAt: new Date().toISOString(),
+    goal: null,
+    frequency: freq || 2
+  });
+  
+  // Add to appropriate array
+  if (freq === 1 && !onceWeeklyExercises.includes(trimmed)) {
+    onceWeeklyExercises.push(trimmed);
+  } else if (freq === 3 && !thriceWeeklyExercises.includes(trimmed)) {
+    thriceWeeklyExercises.push(trimmed);
+  } else if (!twiceWeeklyExercises.includes(trimmed)) {
+    twiceWeeklyExercises.push(trimmed);
+  }
+  
   saveExercises();
+  render();
 }
 
-function deleteExercise(id) {
-  state.exercises = state.exercises.filter(ex => ex.id !== id);
-  state.records = state.records.filter(r => r.exerciseId !== id);
-  state.editExercise = null;
+function addBulkExercises(text, freq) {
+  if (!text.trim()) return;
+  const names = text.split('\n').map(n => n.trim()).filter(n => n);
+  const allEx = getAllExercises();
+  let added = 0;
+  
+  names.forEach(name => {
+    if (!findExerciseByName(name) && !allEx.includes(name)) {
+      state.exercises.push({
+        id: Date.now().toString() + Math.random(),
+        name: name,
+        createdAt: new Date().toISOString(),
+        goal: null,
+        frequency: freq
+      });
+      
+      if (freq === 1) {
+        onceWeeklyExercises.push(name);
+      } else if (freq === 3) {
+        thriceWeeklyExercises.push(name);
+      } else {
+        twiceWeeklyExercises.push(name);
+      }
+      added++;
+    }
+  });
+  
+  if (added > 0) {
+    saveExercises();
+    render();
+    alert(`Added ${added} exercise${added > 1 ? 's' : ''}!`);
+  } else {
+    alert('No new exercises to add (all already exist).');
+  }
+}
+
+function removeExercise(name) {
+  if (!confirm(`Remove "${name}" and all its records?`)) return;
+  
+  const ex = findExerciseByName(name);
+  if (ex) {
+    state.exercises = state.exercises.filter(e => e.id !== ex.id);
+    state.records = state.records.filter(r => r.exerciseId !== ex.id);
+  }
+  
+  // Remove from arrays
+  const twiceIdx = twiceWeeklyExercises.indexOf(name);
+  if (twiceIdx > -1) twiceWeeklyExercises.splice(twiceIdx, 1);
+  
+  const onceIdx = onceWeeklyExercises.indexOf(name);
+  if (onceIdx > -1) onceWeeklyExercises.splice(onceIdx, 1);
+  
+  const thriceIdx = thriceWeeklyExercises.indexOf(name);
+  if (thriceIdx > -1) thriceWeeklyExercises.splice(thriceIdx, 1);
+  
   saveExercises();
   saveRecords();
   render();
 }
 
-function updateRecord(id, updates) {
-  state.records = state.records.map(r => r.id === id ? { ...r, ...updates } : r);
-  state.editRecord = null;
-  saveRecords();
-  render();
-}
-
-function deleteRecord(id) {
-  state.records = state.records.filter(r => r.id !== id);
-  state.deleteConfirmId = null;
-  saveRecords();
+function changeFrequency(name, newFreq) {
+  const ex = findExerciseByName(name);
+  if (ex) {
+    ex.frequency = newFreq;
+    saveExercises();
+  }
+  
+  // Remove from all arrays first
+  const twiceIdx = twiceWeeklyExercises.indexOf(name);
+  if (twiceIdx > -1) twiceWeeklyExercises.splice(twiceIdx, 1);
+  
+  const onceIdx = onceWeeklyExercises.indexOf(name);
+  if (onceIdx > -1) onceWeeklyExercises.splice(onceIdx, 1);
+  
+  const thriceIdx = thriceWeeklyExercises.indexOf(name);
+  if (thriceIdx > -1) thriceWeeklyExercises.splice(thriceIdx, 1);
+  
+  // Add to correct array
+  if (newFreq === 1) {
+    onceWeeklyExercises.push(name);
+  } else if (newFreq === 3) {
+    thriceWeeklyExercises.push(name);
+  } else {
+    twiceWeeklyExercises.push(name);
+  }
+  
   render();
 }
 
@@ -439,7 +823,7 @@ function importData(file) {
   reader.onload = (ev) => {
     try {
       const lines = ev.target.result.split('\n').slice(1).filter(l => l.trim());
-      const newEx = [], newRec = [], exMap = {};
+      let imported = 0;
       lines.forEach(line => {
         const m = line.match(/("([^"]*)"|[^,]+)/g);
         if (!m || m.length < 3) return;
@@ -447,480 +831,608 @@ function importData(file) {
         const date = m[1].replace(/^"|"$/g, '').trim();
         const amt = parseFloat(m[2].replace(/^"|"$/g, '').trim());
         if (!name || !date || isNaN(amt)) return;
-        if (!exMap[name]) {
-          const id = `imp-${Date.now()}-${Math.random()}`;
-          exMap[name] = id;
-          newEx.push({ id, name, createdAt: new Date().toISOString(), goal: null });
+        const ex = ensureExerciseExists(name);
+        if (!getRecordForDate(ex.id, date)) {
+          state.records.push({ id: Date.now().toString() + Math.random(), exerciseId: ex.id, amount: amt, date, timestamp: new Date().toISOString() });
+          imported++;
         }
-        newRec.push({ id: `rec-${Date.now()}-${Math.random()}`, exerciseId: exMap[name], amount: amt, date, timestamp: new Date().toISOString() });
       });
-      const merged = [...state.exercises];
-      newEx.forEach(ne => {
-        const exists = state.exercises.find(ex => ex.name === ne.name);
-        if (!exists) merged.push(ne);
-        else newRec.forEach(r => { if (r.exerciseId === ne.id) r.exerciseId = exists.id; });
-      });
-      state.exercises = merged;
-      state.records = [...state.records, ...newRec];
-      state.showImport = false;
-      saveExercises();
-      saveRecords();
-      alert(`Imported ${newRec.length} records!`);
-      render();
+      saveExercises(); saveRecords(); state.showImport = false;
+      alert(`Imported ${imported} records!`); render();
     } catch (err) { alert('Error importing CSV'); }
   };
   reader.readAsText(file);
 }
 
-// Mini chart
-function renderMiniChart(data, height = 50) {
-  if (!data || data.length < 2) return '';
-  const max = Math.max(...data.map(d => d.amount), 1);
-  const bars = data.map((d, i) => {
-    const h = (d.amount / max) * 100;
-    const opacity = 0.3 + (i / data.length) * 0.7;
-    return `<div class="chart-bar rounded-t" style="flex:1;height:${h}%;min-height:4px;background:#4f46e5;opacity:${opacity}" title="${d.date}: ${d.amount}"></div>`;
-  }).join('');
-  return `<div class="flex items-end gap-1" style="height:${height}px">${bars}</div>`;
+function selectExercise(name) {
+  state.selectedExercise = name;
+  render();
 }
 
 // Render
 function render() {
   const app = document.getElementById('app');
-  const todayCount = getTodayCount();
-  const overallStreak = getOverallStreak();
-  const sortedExercises = getSortedExercises();
   
-  let html = '';
-  
-  // Header Card
-  html += `
-    <div class="card">
-      <div class="flex items-center justify-between gap-4 mb-4 flex-wrap">
-        <div class="flex items-center gap-3">
-          <div class="bg-indigo-600 p-3 rounded-xl text-white">${icon('trend', 28)}</div>
-          <div>
-            <h1 class="text-2xl font-bold text-gray-800">Exercise Tracker</h1>
-            <p class="text-gray-600 text-sm">Track your fitness progress</p>
-          </div>
-        </div>
-        <div class="flex gap-2 flex-wrap">
-          <button onclick="downloadData()" ${!state.records.length ? 'disabled' : ''} class="flex items-center gap-2 bg-green-600 text-white p-2 px-3 rounded-lg font-medium text-sm">
-            ${icon('download', 16)} Export
-          </button>
-          <button onclick="state.showImport=true;render()" class="flex items-center gap-2 bg-blue-600 text-white p-2 px-3 rounded-lg font-medium text-sm">
-            ${icon('plus', 16)} Import
-          </button>
-        </div>
-      </div>
-      
-      <div class="grad-header rounded-xl p-4 text-white cursor-pointer" onclick="state.showDailyStats=!state.showDailyStats;render()">
-        <div class="flex items-center justify-between flex-wrap gap-3">
-          <div class="flex-1">
-            <p class="text-indigo-100 text-xs font-semibold mb-1">TODAY'S PROGRESS</p>
-            <p class="text-2xl font-bold">${todayCount} Exercise${todayCount !== 1 ? 's' : ''} Completed</p>
-            <p class="text-indigo-100 text-xs mt-1">Click to view daily history</p>
-          </div>
-          <div class="flex items-center gap-3">
-            ${overallStreak > 0 ? `
-              <div class="flex items-center gap-2 bg-white/20 rounded-lg p-2 px-3">
-                ${icon('fireLg')}
-                <div>
-                  <p class="text-xs opacity-80">Streak</p>
-                  <p class="font-bold">${overallStreak} day${overallStreak !== 1 ? 's' : ''}</p>
-                </div>
-              </div>
-            ` : ''}
-            <div class="bg-white/20 p-3 rounded-lg hide-mobile">${icon('calendar', 28)}</div>
-          </div>
-        </div>
-      </div>
+  let html = `
+    <!-- Page Tabs -->
+    <div class="flex mb-0">
+      <button onclick="state.page='log';render()" class="page-tab ${state.page === 'log' ? 'active' : ''}">${icon('calendar')} Log</button>
+      <button onclick="state.page='stats';render()" class="page-tab ${state.page === 'stats' ? 'active' : ''}">${icon('chart')} Stats</button>
     </div>
   `;
-
-  // Quick Log
-  if (state.exercises.length > 0) {
-    html += `
-      <div class="card">
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-            <span class="text-orange-600">${icon('zap')}</span> Quick Log
-          </h2>
-          <button onclick="selectRandomExercise()" class="flex items-center gap-2 bg-purple-600 text-white p-2 px-3 rounded-lg font-medium text-sm" title="Pick random exercise">
-            ${icon('shuffle')} Random
-          </button>
-        </div>
-        <div class="flex gap-2 flex-wrap mb-3">
-          ${state.exercises.slice(0, 6).map(ex => `
-            <button onclick="state.quickLogExerciseId=state.quickLogExerciseId==='${ex.id}'?null:'${ex.id}';state.quickLogAmount='';render();setTimeout(()=>{const el=document.getElementById('quickAmountInput');if(el)el.focus();},0)" class="quick-log-btn ${state.quickLogExerciseId === ex.id ? 'selected' : ''}">
-              ${ex.name}
-            </button>
-          `).join('')}
-        </div>
-        ${state.quickLogExerciseId ? `
-          <div class="flex gap-2 items-center bg-gray-50 p-3 rounded-lg">
-            <span class="text-sm font-medium text-gray-600">${state.exercises.find(e => e.id === state.quickLogExerciseId)?.name}:</span>
-            <input id="quickAmountInput" type="number" value="${state.quickLogAmount}" oninput="state.quickLogAmount=this.value" onkeypress="if(event.key==='Enter')quickLog()" placeholder="Amount" class="flex-1" style="max-width:120px">
-            <button onclick="quickLog()" class="bg-indigo-600 text-white p-2 px-4 rounded-lg font-medium">Log</button>
-            <button onclick="state.quickLogExerciseId=null;state.quickLogAmount='';render()" class="text-gray-500 p-2">${icon('x')}</button>
-          </div>
-        ` : ''}
-      </div>
-    `;
-  }
-
-  // Workout Schedule
-  const todayDay = getTodayDayName();
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  const selectedDay = state.selectedDay || todayDay;
-  const dayExercises = workoutSchedule[selectedDay] || [];
   
-  html += `
-    <div class="card">
-      <h2 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-        <span class="text-indigo-600">${icon('calendar', 20)}</span> Workout Schedule
-      </h2>
-      <div class="flex gap-2 flex-wrap mb-3">
-        ${days.map(day => `
-          <button onclick="state.selectedDay='${day}';render()" class="day-btn ${selectedDay === day ? 'active' : ''} ${day === todayDay ? 'today' : ''}">
-            ${day.slice(0, 3)}
-          </button>
-        `).join('')}
-      </div>
-      <div class="flex flex-col gap-2">
-        ${dayExercises.map(name => {
-          const done = isExerciseLoggedToday(name);
-          const ex = findExerciseByName(name);
-          const isSelected = ex && state.quickLogExerciseId === ex.id;
-          
-          // Get stats for this exercise
-          let max = 0;
-          let last7Avg = 0;
-          if (ex) {
-            const recs = state.records.filter(r => r.exerciseId === ex.id).sort((a, b) => new Date(b.date) - new Date(a.date));
-            if (recs.length > 0) {
-              max = Math.max(...recs.map(r => r.amount));
-              const last7 = recs.slice(0, 7);
-              last7Avg = last7.reduce((sum, r) => sum + r.amount, 0) / last7.length;
-            }
-          }
-          
-          return `
-            <div class="flex items-center gap-2">
-              <button onclick="selectDayExercise('${name.replace(/'/g, "\\'")}')" class="exercise-chip flex-1 text-left ${isSelected ? 'selected' : ''} ${done ? 'done' : ''}">
-                ${done ? '✓ ' : ''}${name}
-              </button>
-              ${ex && max > 0 ? `
-                <span class="text-xs text-green-700 font-medium shrink-0" style="min-width:70px">Max: ${max.toFixed(1)}</span>
-                <span class="text-xs text-blue-700 font-medium shrink-0" style="min-width:70px">L7: ${last7Avg.toFixed(1)}</span>
-              ` : `
-                <span class="text-xs text-gray-400 shrink-0" style="min-width:146px">No data</span>
-              `}
-            </div>
-          `;
-        }).join('')}
-        ${dayExercises.length === 0 ? '<p class="text-gray-500 text-sm">Rest day!</p>' : ''}
-      </div>
-      ${state.quickLogExerciseId && dayExercises.some(name => { const ex = findExerciseByName(name); return ex && ex.id === state.quickLogExerciseId; }) ? `
-        <div class="flex gap-2 items-center bg-gray-50 p-3 rounded-lg mt-3">
-          <span class="text-sm font-medium text-gray-600">${state.exercises.find(e => e.id === state.quickLogExerciseId)?.name}:</span>
-          <input id="quickAmountInput" type="number" value="${state.quickLogAmount}" oninput="state.quickLogAmount=this.value" onkeypress="if(event.key==='Enter')quickLog()" placeholder="Amount" class="flex-1" style="max-width:120px">
-          <button onclick="quickLog()" class="bg-indigo-600 text-white p-2 px-4 rounded-lg font-medium">Log</button>
-          <button onclick="state.quickLogExerciseId=null;state.quickLogAmount='';render()" class="text-gray-500 p-2">${icon('x')}</button>
-        </div>
-      ` : ''}
-    </div>
-  `;
-
-  // Daily Stats
-  if (state.showDailyStats) {
-    const dailyStats = getDailyStats();
-    html += `
-      <div class="card">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2"><span class="text-indigo-600">${icon('chart', 20)}</span> Daily History</h2>
-          <button onclick="state.showDailyStats=false;render()" class="text-gray-500 text-sm bg-gray-100 p-2 px-3 rounded-lg">Close</button>
-        </div>
-        <div class="overflow-auto max-h-64">
-          ${dailyStats.map(s => {
-            const d = new Date(s.date + 'T00:00:00');
-            const today = new Date(); today.setHours(0,0,0,0);
-            const days = Math.floor((today - d) / 86400000);
-            const label = days === 0 ? 'Today' : days === 1 ? 'Yesterday' : `${days}d ago`;
-            return `
-              <div class="flex items-center justify-between p-3 rounded-lg mb-2 ${s.count === 0 ? 'grad-gray' : 'grad-indigo'}">
-                <div>
-                  <p class="font-medium text-gray-800 text-sm">${d.toLocaleDateString('en-US', {weekday:'short',month:'short',day:'numeric'})}</p>
-                  <p class="text-xs text-gray-500">${label}</p>
-                </div>
-                <div class="py-1 px-3 rounded-lg font-bold text-white text-sm ${s.count === 0 ? 'bg-gray-400' : 'bg-indigo-600'}">${s.count}</div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      </div>
-    `;
-  }
-
-  // Add Exercise
-  html += `
-    <div class="card">
-      <button onclick="state.showAddExercise=!state.showAddExercise;render()" class="flex items-center gap-2 bg-indigo-600 text-white p-3 rounded-lg w-full justify-center font-semibold">
-        ${icon('plus', 20)} Add New Exercise
-      </button>
-      ${state.showAddExercise ? `
-        <div class="flex gap-2 mt-4">
-          <input type="text" id="newExerciseInput" value="${state.newExerciseName}" oninput="state.newExerciseName=this.value" onkeypress="if(event.key==='Enter')addExercise()" placeholder="Exercise name" class="flex-1">
-          <button onclick="addExercise()" class="bg-indigo-600 text-white p-3 rounded-lg font-medium">Add</button>
-        </div>
-      ` : ''}
-    </div>
-  `;
-
-  // Log Workout
-  if (state.exercises.length > 0) {
-    html += `
-      <div class="card">
-        <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2"><span class="text-indigo-600">${icon('calendar', 20)}</span> Log Workout</h2>
-        <div class="grid grid-3 gap-3 mobile-full">
-          <select onchange="state.selectedExerciseId=this.value||null" value="${state.selectedExerciseId || ''}">
-            <option value="">Select exercise</option>
-            ${state.exercises.map(ex => `<option value="${ex.id}" ${state.selectedExerciseId === ex.id ? 'selected' : ''}>${ex.name}</option>`).join('')}
-          </select>
-          <input type="number" value="${state.amount}" oninput="state.amount=this.value" placeholder="Amount">
-          <input type="date" value="${state.recordDate}" oninput="state.recordDate=this.value">
-        </div>
-        <button onclick="addRecord()" class="mt-4 w-full bg-indigo-600 text-white p-3 rounded-lg font-semibold">Log Exercise</button>
-      </div>
-    `;
-  }
-
-  // Statistics
-  if (state.exercises.length > 0) {
-    html += `
-      <div class="card">
-        <div class="flex items-center justify-between gap-3 mb-4 flex-wrap">
-          <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2"><span class="text-indigo-600">${icon('chart', 20)}</span> Statistics</h2>
-          <div class="flex items-center gap-2">
-            <span class="text-gray-500">${icon('sort')}</span>
-            <select value="${state.sortBy}" onchange="state.sortBy=this.value;render()" style="font-size:0.8rem;padding:0.4rem 0.6rem">
-              <option value="dateAddedNewest" ${state.sortBy === 'dateAddedNewest' ? 'selected' : ''}>Date Added (Newest)</option>
-              <option value="dateAddedOldest" ${state.sortBy === 'dateAddedOldest' ? 'selected' : ''}>Date Added (Oldest)</option>
-              <option value="alphabetical" ${state.sortBy === 'alphabetical' ? 'selected' : ''}>Alphabetical</option>
-              <option value="mostLogs" ${state.sortBy === 'mostLogs' ? 'selected' : ''}>Most Logs</option>
-              <option value="fewestLogs" ${state.sortBy === 'fewestLogs' ? 'selected' : ''}>Fewest Logs</option>
-              <option value="lastCompletedRecent" ${state.sortBy === 'lastCompletedRecent' ? 'selected' : ''}>Last Completed (Recent)</option>
-              <option value="lastCompletedOldest" ${state.sortBy === 'lastCompletedOldest' ? 'selected' : ''}>Last Completed (Oldest)</option>
-              <option value="percentDiff" ${state.sortBy === 'percentDiff' ? 'selected' : ''}>L10 AVG/MAX %</option>
-              <option value="streak" ${state.sortBy === 'streak' ? 'selected' : ''}>Streak</option>
-            </select>
-          </div>
-        </div>
-        ${sortedExercises.map(ex => {
-          const s = getStats(ex.id);
-          const pct = s.max > 0 ? (s.last10Average / s.max) * 100 : 0;
-          const goalProgress = ex.goal && s.last10Average > 0 ? (s.last10Average / ex.goal) * 100 : null;
-          const isExpanded = state.expandedExercise === ex.id;
-          let lastDateInfo = null;
-          if (s.lastDate) {
-            const ld = new Date(s.lastDate + 'T00:00:00');
-            const today = new Date(); today.setHours(0,0,0,0);
-            const days = Math.floor((today - ld) / 86400000);
-            lastDateInfo = { text: ld.toLocaleDateString('en-US',{month:'short',day:'numeric'}), days };
-          }
-          
-          return `
-            <div class="border-2 border-gray-200 rounded-xl p-4 mb-3">
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-2 flex-1 min-w-0">
-                  <h3 class="font-bold text-gray-800 truncate">${ex.name}</h3>
-                  ${s.streak > 0 ? `<span class="streak-badge bg-amber-50 text-amber-700 border border-amber-300 shrink-0">${icon('fire')} ${s.streak}</span>` : ''}
-                </div>
-                <div class="flex items-center gap-1 shrink-0">
-                  <button onclick="state.editExercise={...state.exercises.find(e=>e.id==='${ex.id}')};render()" class="p-2 text-gray-500 bg-gray-100 rounded-lg">${icon('settings')}</button>
-                  <button onclick="state.expandedExercise=state.expandedExercise==='${ex.id}'?null:'${ex.id}';render()" class="p-2 text-gray-500 bg-gray-100 rounded-lg">${icon(isExpanded ? 'chevronUp' : 'chevronDown')}</button>
-                </div>
-              </div>
-              
-              ${ex.goal ? `
-                <div class="mb-3 p-2 bg-green-50 rounded-lg border border-green-300">
-                  <div class="flex items-center justify-between mb-1">
-                    <span class="text-xs font-semibold text-green-700 flex items-center gap-1">${icon('target')} Goal: ${ex.goal}</span>
-                    <span class="text-xs font-bold text-green-800">${goalProgress?.toFixed(0)}%</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width:${Math.min(goalProgress || 0, 100)}%;background:${goalProgress >= 100 ? '#16a34a' : '#4f46e5'}"></div>
-                  </div>
-                </div>
-              ` : ''}
-              
-              <div class="grid grid-3 gap-3 mb-3">
-                <div class="grad-green p-2 rounded-lg"><p class="text-xs text-green-700 font-semibold">MAX</p><p class="text-xl font-bold text-green-800">${s.max.toFixed(1)}</p></div>
-                <div class="grad-blue p-2 rounded-lg"><p class="text-xs text-blue-700 font-semibold">AVG</p><p class="text-xl font-bold text-blue-800">${s.average.toFixed(1)}</p></div>
-                <div class="grad-orange p-2 rounded-lg"><p class="text-xs text-orange-700 font-semibold">LOGS</p><p class="text-xl font-bold text-orange-800">${s.count}</p></div>
-              </div>
-              
-              ${isExpanded ? `
-                <div class="grid grid-4 gap-3 mb-3">
-                  <div class="grad-purple p-2 rounded-lg"><p class="text-xs text-purple-700 font-semibold">L4 AVG</p><p class="text-lg font-bold text-purple-800">${s.last4Average.toFixed(1)}</p></div>
-                  <div class="grad-indigo p-2 rounded-lg"><p class="text-xs text-indigo-700 font-semibold">L10 AVG</p><p class="text-lg font-bold text-indigo-800">${s.last10Average.toFixed(1)}</p></div>
-                  <div class="grad-pink p-2 rounded-lg"><p class="text-xs text-pink-700 font-semibold">LAST</p><p class="text-sm font-bold text-pink-800">${lastDateInfo ? `${lastDateInfo.text} (${lastDateInfo.days}d)` : 'N/A'}</p></div>
-                  <div class="grad-teal p-2 rounded-lg"><p class="text-xs text-teal-700 font-semibold">L10/MAX</p><p class="text-lg font-bold text-teal-800">${pct.toFixed(0)}%</p></div>
-                </div>
-                ${s.chartData.length > 1 ? `
-                  <div class="bg-gray-50 p-3 rounded-lg">
-                    <p class="text-xs text-gray-500 font-semibold mb-2">LAST 10 ENTRIES</p>
-                    ${renderMiniChart(s.chartData)}
-                  </div>
-                ` : ''}
-              ` : ''}
-            </div>
-          `;
-        }).join('')}
-      </div>
-    `;
+  if (state.page === 'log') {
+    html += renderLogPage();
   } else {
-    html += `
-      <div class="card" style="text-align:center;padding:3rem">
-        <div class="text-gray-400 mb-4" style="display:flex;justify-content:center">${icon('trend', 64)}</div>
-        <h3 class="text-xl font-bold text-gray-800 mb-2">No Exercises Yet</h3>
-        <p class="text-gray-600">Add your first exercise to start tracking!</p>
-      </div>
-    `;
+    html += renderStatsPage();
   }
-
-  // History
-  if (state.records.length > 0) {
-    const filteredHistory = getFilteredHistory();
-    html += `
-      <div class="card">
-        <button onclick="state.showHistory=!state.showHistory;render()" class="flex items-center gap-2 text-lg font-bold text-gray-800 bg-white w-full" style="text-align:left">
-          <span class="text-indigo-600">${icon('history')}</span>
-          Log History (${state.records.length})
-          <span class="text-sm text-gray-500 ml-2">${state.showHistory ? '▲' : '▼'}</span>
-        </button>
-        ${state.showHistory ? `
-          <div class="mt-3 mb-3">
-            <select value="${state.historyFilter}" onchange="state.historyFilter=this.value;render()" style="font-size:0.875rem">
-              <option value="all" ${state.historyFilter === 'all' ? 'selected' : ''}>All Exercises</option>
-              ${state.exercises.map(ex => `<option value="${ex.id}" ${state.historyFilter === ex.id ? 'selected' : ''}>${ex.name}</option>`).join('')}
-            </select>
-          </div>
-          <div class="overflow-auto max-h-96">
-            ${filteredHistory.map(r => {
-              const ex = state.exercises.find(e => e.id === r.exerciseId);
-              if (!ex) return '';
-              return `
-                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg mb-2">
-                  <div class="min-w-0 flex-1">
-                    <p class="font-medium text-gray-800 truncate">${ex.name}</p>
-                    <p class="text-sm text-gray-600">${r.amount} • ${new Date(r.date + 'T00:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}</p>
-                  </div>
-                  <div class="flex gap-1 shrink-0">
-                    <button onclick="state.editRecord={...state.records.find(rec=>rec.id==='${r.id}')};render()" class="p-2 text-indigo-600 bg-white rounded-lg">${icon('edit')}</button>
-                    <button onclick="state.deleteConfirmId='${r.id}';render()" class="p-2 text-red-600 bg-white rounded-lg">${icon('trash')}</button>
-                  </div>
-                </div>
-              `;
-            }).join('')}
-          </div>
-        ` : ''}
-      </div>
-    `;
-  }
-
-  // Modals
-  // Edit Exercise Modal
-  if (state.editExercise) {
-    html += `
-      <div class="fixed inset-0 overlay flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl shadow-2xl p-6" style="max-width:24rem;width:100%">
-          <h3 class="text-xl font-bold text-gray-800 mb-4">Edit Exercise</h3>
-          <div class="mb-3">
-            <label class="text-sm font-medium text-gray-600 mb-1" style="display:block">Name</label>
-            <input type="text" value="${state.editExercise.name}" oninput="state.editExercise.name=this.value">
-          </div>
-          <div class="mb-4">
-            <label class="text-sm font-medium text-gray-600 mb-1" style="display:block">Daily Goal (optional)</label>
-            <input type="number" value="${state.editExercise.goal || ''}" oninput="state.editExercise.goal=this.value?parseFloat(this.value):null" placeholder="e.g., 50">
-          </div>
-          <div class="flex gap-2 mb-3">
-            <button onclick="state.editExercise=null;render()" class="flex-1 p-3 bg-gray-200 text-gray-800 rounded-lg font-semibold">Cancel</button>
-            <button onclick="updateExercise('${state.editExercise.id}',{name:state.editExercise.name,goal:state.editExercise.goal});state.editExercise=null;render()" class="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold">Save</button>
-          </div>
-          <button onclick="if(confirm('Delete this exercise and all its records?'))deleteExercise('${state.editExercise.id}')" class="w-full p-3 bg-red-600 text-white rounded-lg font-semibold">Delete Exercise</button>
-        </div>
-      </div>
-    `;
-  }
-
-  // Edit Record Modal
-  if (state.editRecord) {
-    html += `
-      <div class="fixed inset-0 overlay flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl shadow-2xl p-6" style="max-width:24rem;width:100%">
-          <h3 class="text-xl font-bold text-gray-800 mb-4">Edit Log</h3>
-          <div class="mb-3">
-            <label class="text-sm font-medium text-gray-600 mb-1" style="display:block">Amount</label>
-            <input type="number" value="${state.editRecord.amount}" oninput="state.editRecord.amount=parseFloat(this.value)">
-          </div>
-          <div class="mb-4">
-            <label class="text-sm font-medium text-gray-600 mb-1" style="display:block">Date</label>
-            <input type="date" value="${state.editRecord.date}" oninput="state.editRecord.date=this.value">
-          </div>
-          <div class="flex gap-2">
-            <button onclick="state.editRecord=null;render()" class="flex-1 p-3 bg-gray-200 text-gray-800 rounded-lg font-semibold">Cancel</button>
-            <button onclick="updateRecord('${state.editRecord.id}',{amount:state.editRecord.amount,date:state.editRecord.date})" class="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold">Save</button>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  // Delete Confirm Modal
-  if (state.deleteConfirmId) {
-    html += `
-      <div class="fixed inset-0 overlay flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl shadow-2xl p-6" style="max-width:24rem;width:100%">
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Delete Log?</h3>
-          <p class="text-gray-600 mb-4">This action cannot be undone.</p>
-          <div class="flex gap-3">
-            <button onclick="state.deleteConfirmId=null;render()" class="flex-1 p-3 bg-gray-200 text-gray-800 rounded-lg font-semibold">Cancel</button>
-            <button onclick="deleteRecord('${state.deleteConfirmId}')" class="flex-1 p-3 bg-red-600 text-white rounded-lg font-semibold">Delete</button>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
+  
   // Import Modal
   if (state.showImport) {
     html += `
-      <div class="fixed inset-0 overlay flex items-center justify-center z-50 p-4">
+      <div class="fixed inset-0 overlay z-50" style="display:flex;align-items:center;justify-content:center">
         <div class="bg-white rounded-xl shadow-2xl p-6" style="max-width:32rem;width:100%">
           <h3 class="text-xl font-bold text-gray-800 mb-2">Import CSV</h3>
-          <p class="text-gray-600 mb-4">Upload a CSV with columns: Exercise, Date, Amount</p>
-          <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-4">
-            <p class="text-sm text-blue-900 font-semibold mb-2">Format:</p>
-            <code class="text-xs text-blue-900">Exercise,Date,Amount<br>"Push-ups","2026-01-10",50</code>
-          </div>
+          <p class="text-gray-600 mb-4">Format: Exercise, Date, Amount</p>
           <input type="file" accept=".csv" onchange="importData(this.files[0])" class="mb-4 w-full">
           <button onclick="state.showImport=false;render()" class="w-full p-3 bg-gray-200 text-gray-800 rounded-lg font-semibold">Cancel</button>
         </div>
       </div>
     `;
   }
-
+  
+  // Exercise Editor Modal
+  if (state.showExerciseEditor) {
+    const sortedExercises = getAllExercises().slice().sort((a, b) => a.localeCompare(b));
+    html += `
+      <div class="fixed inset-0 overlay z-50" style="display:flex;align-items:center;justify-content:center;padding:1rem">
+        <div class="bg-white rounded-xl shadow-2xl" style="max-width:56rem;width:100%;max-height:90vh;display:flex;flex-direction:column">
+          <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold text-gray-800">Exercise Editor</h3>
+              <button onclick="closeExerciseEditor()" class="text-gray-500 p-2">${icon('x')}</button>
+            </div>
+          </div>
+          
+          <div class="p-6 overflow-auto flex-1">
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1.5rem">
+              <!-- Add Exercises -->
+              <div>
+                <h4 class="font-bold text-gray-800 mb-3">Add Single Exercise</h4>
+                <div class="flex gap-2 mb-4">
+                  <input type="text" id="newExerciseName" placeholder="Exercise name" class="flex-1">
+                  <select id="newExerciseFreq" style="width:80px">
+                    <option value="1">1x</option>
+                    <option value="2" selected>2x</option>
+                    <option value="3">3x</option>
+                  </select>
+                  <button onclick="addSingleExercise(document.getElementById('newExerciseName').value, parseInt(document.getElementById('newExerciseFreq').value));document.getElementById('newExerciseName').value=''" class="bg-green-600 text-white px-3 rounded-lg font-medium">Add</button>
+                </div>
+                
+                <h4 class="font-bold text-gray-800 mb-3">Add Multiple Exercises</h4>
+                <p class="text-sm text-gray-500 mb-2">One exercise per line</p>
+                <textarea id="bulkExercises" rows="6" class="w-full mb-2" style="resize:vertical" placeholder="Pushups&#10;Pullups&#10;Squats"></textarea>
+                <div class="flex gap-2">
+                  <select id="bulkFreq" style="width:100px">
+                    <option value="1">1x/week</option>
+                    <option value="2" selected>2x/week</option>
+                    <option value="3">3x/week</option>
+                  </select>
+                  <button onclick="addBulkExercises(document.getElementById('bulkExercises').value, parseInt(document.getElementById('bulkFreq').value));document.getElementById('bulkExercises').value=''" class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium flex-1">Add All</button>
+                </div>
+                
+                <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+                  <p class="text-sm text-gray-600"><strong>Total Exercises:</strong> ${getAllExercises().length}</p>
+                  <p class="text-xs text-gray-500 mt-1">1x: ${onceWeeklyExercises.length} | 2x: ${twiceWeeklyExercises.length} | 3x: ${thriceWeeklyExercises.length}</p>
+                </div>
+              </div>
+              
+              <!-- Current Exercises -->
+              <div>
+                <h4 class="font-bold text-gray-800 mb-3">Current Exercises (${getAllExercises().length})</h4>
+                <div style="max-height:400px;overflow-y:auto" class="border border-gray-200 rounded-lg">
+                  ${sortedExercises.length > 0 ? sortedExercises.map(name => {
+                    const ex = findExerciseByName(name);
+                    const recCount = ex ? state.records.filter(r => r.exerciseId === ex.id).length : 0;
+                    const freq = getExerciseFrequency(name);
+                    const freqClass = freq === 1 ? 'freq-1x' : freq === 3 ? 'freq-3x' : 'freq-2x';
+                    return `
+                      <div class="flex items-center justify-between p-3 border-b border-gray-100 hover:bg-gray-50">
+                        <div class="flex items-center gap-2 flex-1 min-w-0">
+                          <span class="font-medium text-gray-800 truncate">${name}</span>
+                          ${recCount > 0 ? `<span class="text-xs text-gray-400">(${recCount} logs)</span>` : ''}
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                          <select onchange="changeFrequency('${name.replace(/'/g, "\\'")}', parseInt(this.value))" style="width:70px;padding:0.25rem;font-size:0.75rem">
+                            <option value="1" ${freq === 1 ? 'selected' : ''}>1x</option>
+                            <option value="2" ${freq === 2 ? 'selected' : ''}>2x</option>
+                            <option value="3" ${freq === 3 ? 'selected' : ''}>3x</option>
+                          </select>
+                          <button onclick="removeExercise('${name.replace(/'/g, "\\'")}')" class="text-red-600 p-1 hover:bg-red-50 rounded" title="Delete">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                    `;
+                  }).join('') : '<p class="p-4 text-gray-500 text-center">No exercises yet</p>'}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-6 border-t border-gray-200 bg-gray-50 rounded-b-xl">
+            <button onclick="closeExerciseEditor()" class="w-full p-3 bg-indigo-600 text-white rounded-lg font-semibold">Done</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  
   app.innerHTML = html;
+}
 
-  // Auto-focus new exercise input
-  if (state.showAddExercise) {
-    const input = document.getElementById('newExerciseInput');
-    if (input) input.focus();
+function renderLogPage() {
+  const today = todayStr();
+  const weekProgress = getWeeklyProgress();
+  
+  return `
+    <div class="card" style="border-radius:0 1rem 1rem 1rem">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-800">Exercise Log</h1>
+          <p class="text-gray-500 text-sm">${getViewLabel()}</p>
+        </div>
+        <div class="flex gap-2 flex-wrap">
+          <button onclick="addAllExercises()" class="bg-green-600 text-white p-2 px-3 rounded-lg font-medium text-sm">${icon('plus')} Add All</button>
+          <button onclick="openExerciseEditor()" class="bg-purple-600 text-white p-2 px-3 rounded-lg font-medium text-sm">Edit</button>
+          <button onclick="clearAllData()" class="bg-red-600 text-white p-2 px-3 rounded-lg font-medium text-sm">Clear</button>
+          <button onclick="downloadData()" class="bg-blue-600 text-white p-2 px-3 rounded-lg font-medium text-sm">${icon('download')}</button>
+          <button onclick="state.showImport=true;render()" class="bg-indigo-600 text-white p-2 px-3 rounded-lg font-medium text-sm">${icon('plus')} Import</button>
+        </div>
+      </div>
+      
+      <!-- View Tabs + Navigation -->
+      <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+        <div class="flex gap-2">
+          <button onclick="state.view='weekly';render()" class="view-tab ${state.view === 'weekly' ? 'active' : ''}">Weekly</button>
+          <button onclick="state.view='monthly';render()" class="view-tab ${state.view === 'monthly' ? 'active' : ''}">Monthly</button>
+          <button onclick="state.view='yearly';render()" class="view-tab ${state.view === 'yearly' ? 'active' : ''}">Yearly</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="prevPeriod()" class="nav-btn">${icon('left')}</button>
+          <button onclick="goToToday()" class="nav-btn">Today</button>
+          <button onclick="nextPeriod()" class="nav-btn">${icon('right')}</button>
+        </div>
+      </div>
+      
+      <!-- Progress -->
+      <div class="p-3 rounded-lg grad-blue mb-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-xs text-blue-700 font-semibold mb-1">WEEKLY PROGRESS</p>
+            <p class="text-xl font-bold text-blue-800">${weekProgress.done} / ${weekProgress.total}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-2xl font-bold text-blue-800">${weekProgress.total > 0 ? Math.round((weekProgress.done/weekProgress.total)*100) : 0}%</p>
+          </div>
+        </div>
+        <div class="progress-bar mt-2"><div class="progress-fill" style="width:${weekProgress.total > 0 ? (weekProgress.done/weekProgress.total)*100 : 0}%;background:#2563eb"></div></div>
+      </div>
+      
+      <!-- Table -->
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="text-lg font-bold text-gray-800">${state.view.charAt(0).toUpperCase() + state.view.slice(1)} View</h2>
+        ${state.view === 'weekly' ? `<button onclick="logAllFilled()" class="bg-indigo-600 text-white p-2 px-4 rounded-lg font-medium text-sm">Log All</button>` : ''}
+      </div>
+      
+      <div class="overflow-auto" style="max-height:60vh">
+        ${state.view === 'weekly' ? renderWeeklyTable(today) : ''}
+        ${state.view === 'monthly' ? renderMonthlyTable() : ''}
+        ${state.view === 'yearly' ? renderYearlyTable() : ''}
+      </div>
+    </div>
+  `;
+}
+
+function getViewLabel() {
+  if (state.view === 'weekly') {
+    const end = new Date(state.selectedWeekStart);
+    end.setDate(end.getDate() + 6);
+    return `${state.selectedWeekStart.toLocaleDateString('en-US', {month:'short',day:'numeric'})} - ${end.toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})}`;
+  } else if (state.view === 'monthly') {
+    return new Date(state.selectedMonth.year, state.selectedMonth.month).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  } else {
+    return state.selectedYear.toString();
   }
 }
 
-// Initialize
+function renderWeeklyTable(today) {
+  const weekDates = getWeekDatesFrom(state.selectedWeekStart);
+  const allEx = getAllExercises();
+  
+  // Combine all exercises with their completion status
+  const exercisesWithStatus = allEx.map(name => {
+    const ex = findExerciseByName(name);
+    const target = getExerciseFrequency(name);
+    const weekCount = ex ? getWeeklyCountFrom(ex.id, state.selectedWeekStart) : 0;
+    const isComplete = weekCount >= target;
+    return { name, target, isComplete };
+  });
+  
+  // Sort: incomplete first (alphabetically), then complete (alphabetically)
+  const incomplete = exercisesWithStatus.filter(e => !e.isComplete).sort((a, b) => a.name.localeCompare(b.name));
+  const complete = exercisesWithStatus.filter(e => e.isComplete).sort((a, b) => a.name.localeCompare(b.name));
+  const sortedExercises = [...incomplete, ...complete];
+  
+  let html = `<table><thead><tr>
+    <th style="text-align:left;min-width:160px">Exercise</th>
+    <th class="week-cell">Freq</th>
+    ${weekDates.map((d, i) => `<th class="week-cell" style="background:${d===today?'#dbeafe':''}">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][i]}<br><span style="font-weight:400;font-size:0.6rem">${d.slice(5)}</span></th>`).join('')}
+    <th class="week-cell">Done</th>
+  </tr></thead><tbody>`;
+  
+  sortedExercises.forEach(({ name, target }) => {
+    html += renderWeeklyRow(name, target, weekDates, today);
+  });
+  
+  return html + `</tbody></table>`;
+}
+
+function renderWeeklyRow(name, target, weekDates, today) {
+  const ex = findExerciseByName(name);
+  const weekCount = ex ? getWeeklyCountFrom(ex.id, state.selectedWeekStart) : 0;
+  const isComplete = weekCount >= target;
+  const inputBase = name.replace(/[^a-zA-Z0-9]/g, '-');
+  
+  const freqClass = target === 1 ? 'freq-1x' : target === 3 ? 'freq-3x' : 'freq-2x';
+  
+  let cells = weekDates.map((d, i) => {
+    const rec = ex ? getRecordForDate(ex.id, d) : null;
+    const inputId = `input-${inputBase}-${i}`;
+    const escaped = name.replace(/'/g, "\\'");
+    return `<td class="week-cell" style="background:${d===today?'#eff6ff':''}">
+      ${rec ? `<span class="complete-cell">${rec.amount}</span>` : `<input type="number" id="${inputId}" class="week-input" placeholder="-" onkeypress="if(event.key==='Enter')logFromInput('${escaped}','${d}','${inputId}')">`}
+    </td>`;
+  }).join('');
+  
+  return `<tr class="${isComplete ? 'complete-row' : ''}">
+    <td class="exercise-name">${isComplete ? '✓ ' : ''}${name}</td>
+    <td><span class="freq-badge ${freqClass}">${target}x</span></td>
+    ${cells}
+    <td><span class="freq-badge" style="${isComplete ? 'background:#dcfce7;color:#166534' : ''}">${weekCount}/${target}</span></td>
+  </tr>`;
+}
+
+function renderMonthlyTable() {
+  const weeks = getMonthWeeksFrom(state.selectedMonth.year, state.selectedMonth.month);
+  const allEx = getAllExercises();
+  
+  // Combine and sort alphabetically
+  const sortedExercises = allEx.map(name => ({
+    name,
+    target: getExerciseFrequency(name)
+  })).sort((a, b) => a.name.localeCompare(b.name));
+  
+  let html = `<table><thead><tr>
+    <th style="text-align:left;min-width:160px">Exercise</th>
+    <th class="week-cell">Freq</th>
+    ${weeks.map(w => `<th class="week-cell">${w.label}</th>`).join('')}
+    <th class="week-cell">Total</th>
+  </tr></thead><tbody>`;
+  
+  sortedExercises.forEach(({ name, target }) => {
+    html += renderMonthlyRow(name, target, weeks);
+  });
+  
+  return html + `</tbody></table>`;
+}
+
+function renderMonthlyRow(name, target, weeks) {
+  const ex = findExerciseByName(name);
+  let total = 0;
+  const freqClass = target === 1 ? 'freq-1x' : target === 3 ? 'freq-3x' : 'freq-2x';
+  
+  const cells = weeks.map(w => {
+    const count = ex ? getCountInRange(ex.id, w.start, w.end) : 0;
+    total += count;
+    return `<td class="week-cell" style="${count >= target ? 'color:#16a34a;font-weight:600' : ''}">${count || '-'}</td>`;
+  }).join('');
+  
+  const expected = target * weeks.length;
+  const complete = total >= expected;
+  
+  return `<tr class="${complete ? 'complete-row' : ''}">
+    <td class="exercise-name">${complete ? '✓ ' : ''}${name}</td>
+    <td><span class="freq-badge ${freqClass}">${target}x</span></td>
+    ${cells}
+    <td><span class="freq-badge" style="${complete ? 'background:#dcfce7;color:#166534' : ''}">${total}/${expected}</span></td>
+  </tr>`;
+}
+
+function renderYearlyTable() {
+  const months = getYearMonthsFrom(state.selectedYear);
+  const allEx = getAllExercises();
+  
+  // Combine and sort alphabetically
+  const sortedExercises = allEx.map(name => ({
+    name,
+    target: getExerciseFrequency(name)
+  })).sort((a, b) => a.name.localeCompare(b.name));
+  
+  let html = `<table><thead><tr>
+    <th style="text-align:left;min-width:160px">Exercise</th>
+    <th class="week-cell">Freq</th>
+    ${months.map(m => `<th class="week-cell">${m.label}</th>`).join('')}
+    <th class="week-cell">Total</th>
+  </tr></thead><tbody>`;
+  
+  sortedExercises.forEach(({ name, target }) => {
+    html += renderYearlyRow(name, target, months);
+  });
+  
+  return html + `</tbody></table>`;
+}
+
+function renderYearlyRow(name, target, months) {
+  const ex = findExerciseByName(name);
+  let total = 0;
+  const freqClass = target === 1 ? 'freq-1x' : target === 3 ? 'freq-3x' : 'freq-2x';
+  
+  const cells = months.map(m => {
+    const count = ex ? getCountInRange(ex.id, m.start, m.end) : 0;
+    total += count;
+    const expected = target * 4;
+    return `<td class="week-cell" style="${count >= expected ? 'color:#16a34a;font-weight:600' : ''}">${count || '-'}</td>`;
+  }).join('');
+  
+  return `<tr>
+    <td class="exercise-name">${name}</td>
+    <td><span class="freq-badge ${freqClass}">${target}x</span></td>
+    ${cells}
+    <td><span class="freq-badge">${total}</span></td>
+  </tr>`;
+}
+
+function renderStatsPage() {
+  // Sort all exercises alphabetically
+  const sortedExercises = getAllExercises().slice().sort((a, b) => a.localeCompare(b));
+  const selected = state.selectedExercise || 'all';
+  
+  return `
+    <div class="card" style="border-radius:0 1rem 1rem 1rem">
+      <h1 class="text-2xl font-bold text-gray-800 mb-4">Exercise Stats</h1>
+      
+      <div class="grid" style="grid-template-columns:280px 1fr;gap:1.5rem">
+        <!-- Exercise List -->
+        <div style="max-height:70vh;overflow-y:auto">
+          <div onclick="state.selectedExercise='all';render()" class="exercise-row ${selected === 'all' ? 'selected' : ''}" style="background:${selected === 'all' ? '#eef2ff' : '#f0fdf4'};border:${selected === 'all' ? '2px solid #6366f1' : '2px solid #86efac'};margin-bottom:0.75rem">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-gray-800">📊 All Exercises</span>
+              <span class="text-xs text-green-600 font-semibold">${state.records.length}</span>
+            </div>
+          </div>
+          
+          ${sortedExercises.map(name => {
+            const e = findExerciseByName(name);
+            const s = e ? getExerciseStats(e.id) : null;
+            const freq = getExerciseFrequency(name);
+            const freqClass = freq === 1 ? 'freq-1x' : freq === 3 ? 'freq-3x' : 'freq-2x';
+            return `<div onclick="selectExercise('${name.replace(/'/g, "\\'")}')" class="exercise-row ${selected === name ? 'selected' : ''}">
+              <div class="flex justify-between items-center">
+                <span class="font-medium text-gray-800">${name}</span>
+                <div class="flex items-center gap-2">
+                  <span class="freq-badge ${freqClass}">${freq}x</span>
+                  ${s && s.count > 0 ? `<span class="text-xs text-green-600 font-semibold">${s.count}</span>` : ''}
+                </div>
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+        
+        <!-- Stats Detail -->
+        <div>
+          ${selected === 'all' ? renderAllExercisesStats() : renderSingleExerciseStats(selected)}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderAllExercisesStats() {
+  const stats = getOverallStats();
+  
+  return `
+    <div class="flex items-center gap-3 mb-4">
+      <h2 class="text-xl font-bold text-gray-800">📊 Overall Statistics</h2>
+    </div>
+    
+    ${stats.totalRecords > 0 ? `
+      <!-- Highlight Card: Do This Now -->
+      ${stats.shouldDoNow ? `
+        <div class="p-4 rounded-xl grad-orange mb-4 border-2 border-orange-300">
+          <p class="text-xs font-bold text-orange-700 mb-1">🎯 DO THIS NOW</p>
+          <p class="text-2xl font-bold text-orange-800">${stats.shouldDoNow}</p>
+          <p class="text-sm text-orange-600 mt-1">Lowest weekly completion - needs attention!</p>
+        </div>
+      ` : `
+        <div class="p-4 rounded-xl grad-green mb-4 border-2 border-green-300">
+          <p class="text-xs font-bold text-green-700 mb-1">✅ ALL CAUGHT UP</p>
+          <p class="text-lg font-bold text-green-800">You've completed all exercises for this week!</p>
+        </div>
+      `}
+      
+      <!-- Weekly Progress -->
+      <div class="p-4 rounded-xl grad-blue mb-4">
+        <p class="text-xs font-bold text-blue-700 mb-2">THIS WEEK'S PROGRESS</p>
+        <div class="flex items-end gap-4">
+          <p class="text-3xl font-bold text-blue-800">${stats.weeklyCompletionRate.toFixed(0)}%</p>
+          <p class="text-sm text-blue-600 mb-1">${stats.completedThisWeek} / ${stats.expectedThisWeek} exercises</p>
+        </div>
+        <div class="progress-bar mt-2"><div class="progress-fill" style="width:${stats.weeklyCompletionRate}%;background:#2563eb"></div></div>
+      </div>
+      
+      <!-- Main Stats Grid -->
+      <div class="grid grid-4 gap-3 mb-4">
+        <div class="stat-card grad-green"><p class="stat-label text-green-700">Total Logs</p><p class="stat-value text-green-800">${stats.totalRecords}</p></div>
+        <div class="stat-card grad-blue"><p class="stat-label text-blue-700">This Week</p><p class="stat-value text-blue-800">${stats.thisWeekCount}</p></div>
+        <div class="stat-card grad-purple"><p class="stat-label text-purple-700">Today</p><p class="stat-value text-purple-800">${stats.todayCount}</p></div>
+        <div class="stat-card grad-indigo"><p class="stat-label text-indigo-600">Exercises</p><p class="stat-value text-indigo-600">${stats.totalExercises}</p></div>
+      </div>
+      
+      <!-- Streaks -->
+      <div class="grid grid-2 gap-3 mb-4">
+        <div class="stat-card bg-gray-50 border border-gray-200">
+          <p class="stat-label text-gray-600">🔥 Current Streak</p>
+          <p class="stat-value text-orange-600">${stats.currentStreak} days</p>
+        </div>
+        <div class="stat-card bg-gray-50 border border-gray-200">
+          <p class="stat-label text-gray-600">🏆 Longest Streak</p>
+          <p class="stat-value text-purple-600">${stats.longestStreak} days</p>
+        </div>
+      </div>
+      
+      <!-- Best & Most Done -->
+      <div class="grid grid-2 gap-3 mb-4">
+        <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+          <p class="text-xs text-gray-500 font-semibold mb-1">🥇 MOST DONE EXERCISE</p>
+          <p class="font-bold text-gray-800">${stats.mostDoneExercise || 'N/A'}</p>
+          <p class="text-sm text-green-600">${stats.mostDoneCount} times</p>
+        </div>
+        <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+          <p class="text-xs text-gray-500 font-semibold mb-1">📉 LEAST DONE EXERCISE</p>
+          <p class="font-bold text-gray-800">${stats.leastDoneExercise || 'N/A'}</p>
+          <p class="text-sm text-orange-600">${stats.leastDoneCount === Infinity ? 0 : stats.leastDoneCount} times</p>
+        </div>
+      </div>
+      
+      <!-- Day Stats -->
+      <div class="grid grid-3 gap-3 mb-4">
+        <div class="p-3 rounded-lg bg-gray-50 border border-gray-200 text-center">
+          <p class="text-xs text-gray-500 font-semibold">Best Day</p>
+          <p class="font-bold text-green-700">${stats.bestDay}</p>
+        </div>
+        <div class="p-3 rounded-lg bg-gray-50 border border-gray-200 text-center">
+          <p class="text-xs text-gray-500 font-semibold">Active Days</p>
+          <p class="font-bold text-blue-700">${stats.uniqueDays}</p>
+        </div>
+        <div class="p-3 rounded-lg bg-gray-50 border border-gray-200 text-center">
+          <p class="text-xs text-gray-500 font-semibold">Avg/Day</p>
+          <p class="font-bold text-purple-700">${stats.avgPerDay.toFixed(1)}</p>
+        </div>
+      </div>
+      
+      <!-- Last 7 Days Activity -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-4">
+        <p class="text-xs text-gray-500 font-semibold mb-3">LAST 7 DAYS ACTIVITY</p>
+        <div class="flex justify-between items-end gap-2" style="height:80px">
+          ${stats.last7Days.map(d => {
+            const maxCount = Math.max(...stats.last7Days.map(x => x.count), 1);
+            const h = (d.count / maxCount) * 100;
+            const isToday = d.date === todayStr();
+            return `<div class="flex flex-col items-center flex-1">
+              <span class="text-xs font-bold text-gray-700 mb-1">${d.count}</span>
+              <div style="height:60px;width:100%;display:flex;align-items:flex-end">
+                <div style="width:100%;height:${Math.max(h, 5)}%;background:${isToday ? '#6366f1' : '#a5b4fc'};border-radius:4px 4px 0 0"></div>
+              </div>
+              <span class="text-xs text-gray-500 mt-1">${d.dayName}</span>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+      
+      <!-- Never Done -->
+      ${stats.neverDone.length > 0 ? `
+        <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+          <p class="text-xs text-red-600 font-semibold mb-2">⚠️ NEVER DONE (${stats.neverDone.length})</p>
+          <div class="flex flex-wrap gap-2">
+            ${stats.neverDone.slice(0, 10).map(name => `<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">${name}</span>`).join('')}
+            ${stats.neverDone.length > 10 ? `<span class="text-xs text-red-500">+${stats.neverDone.length - 10} more</span>` : ''}
+          </div>
+        </div>
+      ` : ''}
+    ` : `
+      <div class="p-8 text-center text-gray-500">
+        <p class="text-lg mb-2">No data yet</p>
+        <p class="text-sm">Start logging exercises to see overall stats!</p>
+      </div>
+    `}
+  `;
+}
+
+function renderSingleExerciseStats(selected) {
+  const ex = findExerciseByName(selected);
+  const stats = ex ? getExerciseStats(ex.id) : null;
+  const freq = getExerciseFrequency(selected);
+  const freqClass = freq === 1 ? 'freq-1x' : freq === 3 ? 'freq-3x' : 'freq-2x';
+  
+  return `
+    <div class="flex items-center gap-3 mb-4">
+      <h2 class="text-xl font-bold text-gray-800">${selected}</h2>
+      <span class="freq-badge ${freqClass}">${freq}x/week</span>
+    </div>
+    
+    ${stats && stats.count > 0 ? `
+      <!-- Main Stats -->
+      <div class="grid grid-4 gap-3 mb-4">
+        <div class="stat-card grad-green"><p class="stat-label text-green-700">Max</p><p class="stat-value text-green-800">${stats.max.toFixed(1)}</p></div>
+        <div class="stat-card grad-blue"><p class="stat-label text-blue-700">Average</p><p class="stat-value text-blue-800">${stats.avg.toFixed(1)}</p></div>
+        <div class="stat-card grad-purple"><p class="stat-label text-purple-700">L7 Avg</p><p class="stat-value text-purple-800">${stats.last7Avg.toFixed(1)}</p></div>
+        <div class="stat-card grad-orange"><p class="stat-label text-orange-600">L7/Max</p><p class="stat-value text-orange-600">${stats.l7MaxRatio.toFixed(0)}%</p></div>
+      </div>
+      
+      <div class="grid grid-4 gap-3 mb-4">
+        <div class="stat-card grad-indigo"><p class="stat-label text-indigo-600">Min</p><p class="stat-value text-indigo-600">${stats.min.toFixed(1)}</p></div>
+        <div class="stat-card grad-teal"><p class="stat-label text-teal-700">Median</p><p class="stat-value text-teal-800">${stats.median.toFixed(1)}</p></div>
+        <div class="stat-card bg-gray-100"><p class="stat-label text-gray-600">Std Dev</p><p class="stat-value text-gray-800">${stats.stdDev.toFixed(1)}</p></div>
+        <div class="stat-card bg-gray-100"><p class="stat-label text-gray-600">Total</p><p class="stat-value text-gray-800">${stats.total.toFixed(0)}</p></div>
+      </div>
+      
+      <div class="grid grid-3 gap-3 mb-4">
+        <div class="stat-card bg-gray-50 border border-gray-200">
+          <p class="stat-label text-gray-600">Total Logs</p>
+          <p class="stat-value text-gray-800">${stats.count}</p>
+        </div>
+        <div class="stat-card bg-gray-50 border border-gray-200">
+          <p class="stat-label text-gray-600">Best Day</p>
+          <p class="text-lg font-bold text-gray-800">${stats.bestDay}</p>
+        </div>
+        <div class="stat-card bg-gray-50 border border-gray-200">
+          <p class="stat-label text-gray-600">Trend (L7 vs Prev)</p>
+          <p class="stat-value ${stats.recentTrend >= 0 ? 'text-green-600' : 'text-red-600'}">${stats.recentTrend >= 0 ? '+' : ''}${stats.recentTrend.toFixed(1)}%</p>
+        </div>
+      </div>
+      
+      <div class="grid grid-2 gap-3 mb-4">
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <p class="text-xs text-gray-500 font-semibold">First Logged</p>
+          <p class="font-bold text-gray-800">${new Date(stats.firstDate).toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})}</p>
+        </div>
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <p class="text-xs text-gray-500 font-semibold">Last Logged</p>
+          <p class="font-bold text-gray-800">${new Date(stats.lastDate).toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})}</p>
+        </div>
+      </div>
+      
+      <!-- Mini Chart -->
+      <div class="p-4 bg-gray-50 rounded-lg">
+        <p class="text-xs text-gray-500 font-semibold mb-3">LAST 30 ENTRIES</p>
+        <div class="mini-chart">
+          ${stats.chartData.map(r => {
+            const h = stats.max > 0 ? (r.amount / stats.max) * 100 : 0;
+            return `<div class="mini-bar" style="height:${Math.max(h, 5)}%" title="${r.date}: ${r.amount}"></div>`;
+          }).join('')}
+        </div>
+      </div>
+    ` : `
+      <div class="p-8 text-center text-gray-500">
+        <p class="text-lg mb-2">No data yet</p>
+        <p class="text-sm">Start logging this exercise to see stats!</p>
+      </div>
+    `}
+  `;
+}
+
 loadState();
 render();
 </script>
